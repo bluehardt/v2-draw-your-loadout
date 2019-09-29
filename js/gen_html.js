@@ -15,6 +15,10 @@ function createSection(section_name, section_type, json, css) {
 
 	var arr = Object.values(json);
 	
+	if(section_type == cat_str.CHARACTERS) {
+		html += createCheckbox('select', 'all', 'ALL')
+	}
+	
 	for(var i=0; i < arr.length; i++) {
 		html += createCheckbox(section_type, arr[i], arr[i]);
 	}

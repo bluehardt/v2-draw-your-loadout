@@ -6,7 +6,7 @@ function rand(max) {
 
 //toggle all in a column
 function toggleAll(type) {
-	$('#' + type + '-all').click(function(event) {
+	$('#select-all').click(function(event) {
 		var $that = $(this);
         $('input').each(function() {
             this.checked = $that.is(':checked');
@@ -42,6 +42,9 @@ function drawLoadout() {
 	
 	//draw hero
 	rand_ch = chars_arr[rand(chars_arr.length)];
+	
+	if(rand_ch === undefined) return 'Pick at least 1 hero!';
+	
 	//TODO: extract name in better way
 	rand_ch_name = rand_ch.substring(6);
 	
@@ -53,6 +56,9 @@ function drawLoadout() {
 	
 	//draw class
 	rand_cls = cls_arr[rand(cls_arr.length)];
+	
+	if(rand_cls === undefined) return 'Pick at least 1 class per chosen hero!';
+	
 	rand_cls_name = rand_cls.substring(rand_cls.indexOf('-') + 1, rand_cls.lastIndexOf('-'));
 	rand_cls_num = rand_cls.substring(rand_cls.lastIndexOf('-') + 1);
 	
@@ -67,6 +73,9 @@ function drawLoadout() {
 	
 	//draw weapon
 	rand_wpnm = wpnm_arr[rand(wpnm_arr.length)];
+	
+	if(rand_wpnm === undefined) return 'Pick at least 1 melee weapon per chosen hero! (or a class tied weapon)';
+	
 	rand_wpnm_name = rand_wpnm.substring(rand_wpnm.indexOf('-') + 1, rand_wpnm.lastIndexOf('-'));
 	
 	//in case of bardin slayer he can also equip melee weapons in 2nd slot
@@ -84,6 +93,9 @@ function drawLoadout() {
 	
 	//draw weapon
 	rand_wpnr = wpnr_arr[rand(wpnr_arr.length)];
+	
+	if(rand_wpnr === undefined) return 'Pick at least 1 ranged weapon per chosen hero! (or a class tied weapon)';
+	
 	rand_wpnr_name = rand_wpnr.substring(rand_wpnr.indexOf('-') + 1, rand_wpnr.lastIndexOf('-'));
 	
 	return rand_ch_name + ' - ' + rand_cls_name + ' - ' + rand_wpnm_name + ' - ' + rand_wpnr_name;

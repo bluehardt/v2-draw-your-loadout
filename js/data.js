@@ -1,5 +1,4 @@
 const ch_str = {
-	ALL: 'all',
 	SALTZ: 'saltz',
 	KRUBER: 'kruber',
 	BARDIN: 'bardin',
