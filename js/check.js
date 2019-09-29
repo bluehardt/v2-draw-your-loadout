@@ -74,13 +74,13 @@ function drawLoadout() {
 		wpnr_arr = wpnm_arr.concat();
 	}
 	//get array of checked ranged weapons for randomed class which can be used by it
-	$('input[id*=' + cat_str.WPN_RANGED + ']:checked').each(function() {
+	$('input[id*=' + cat_str.WPN_RANGED + '-' + rand_ch_name + ']:checked').each(function() {
 		var id = $(this).attr('id');
 		if(id.substring(id.lastIndexOf('-') + 1).includes(rand_cls_num)) {
 			wpnr_arr.push(id);
 		};
 	});
-	//TODO: default array in case intial one is empty!
+	//TODO: default array in case initial one is empty!
 	
 	//draw weapon
 	rand_wpnr = wpnr_arr[rand(wpnr_arr.length)];
