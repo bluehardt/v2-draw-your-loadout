@@ -7,7 +7,7 @@ function createCheckbox(type, name, label) {
 	return html;
 }
 
-function createSection(section_name, section_type, json, resource, css) {
+function createSection(section_name, section_type, json, resource, is_hidden, css) {
 	var html = '';
 
 	html += '<div class="' + css + '">' +
