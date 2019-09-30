@@ -5,19 +5,18 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
-<script type='text/javascript' src='js/constants.js'></script>
-<script type='text/javascript' src='js/res_EN.js'></script>
+<script type='text/javascript' src='js/data.js'></script>
 <script type='text/javascript' src='js/gen_html.js'></script>
 <script type='text/javascript' src='js/check.js'></script>
 <script type='text/javascript'>
 $(document).ready(function() {
 	toggleAll();
 	
-	toggleCharRelated(ch_str.SALTZ);
-	toggleCharRelated(ch_str.KRUBER);
-	toggleCharRelated(ch_str.BARDIN);
-	toggleCharRelated(ch_str.SIENNA);
-	toggleCharRelated(ch_str.KERI);
+	toggleCharRelated('saltz');
+	toggleCharRelated('kruber');
+	toggleCharRelated('bardin');
+	toggleCharRelated('sienna');
+	toggleCharRelated('keri');
 	
 	$('#drawBtn').click(function() {
 		document.getElementById('output').innerText = drawLoadout();
@@ -26,7 +25,19 @@ $(document).ready(function() {
 
 function test() {
 	document.getElementsByClassName('col-chars')[0].innerHTML = createSection('CHARACTERS', 'chars', ch_str, res_chars, 'chars');
-	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CLASSES', 'cls', cls_str, res_cls, 'classes');	
+
+	<!-- document.getElementById('label-saltz').innerText = chars.saltz; -->
+	<!-- document.getElementById('label-kruber').innerText = chars.kruber; -->
+	<!-- document.getElementById('label-bardin').innerText = chars.bardin; -->
+	<!-- document.getElementById('label-sienna').innerText = chars.sienna; -->
+	<!-- document.getElementById('label-keri').innerText = chars.keri; -->
+
+	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CLASSES', 'cls', cls_str, res_cls, 'classes');
+	
+	<!-- document.getElementById('label-saltz-whc-1').innerText = classes["saltz-whc-1"]; -->
+	<!-- document.getElementById('label-saltz-bh-2').innerText = classes["saltz-bh-2"]; -->
+	<!-- document.getElementById('label-saltz-zlt-3').innerText = classes["saltz-zlt-3"]; -->
+	
 	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection('MELEE', 'wpnm', wpnm_str, res_wpnm, 'melee');
 	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_wpnr, 'ranged');
 }
@@ -35,7 +46,7 @@ function test() {
 <body onload="test()">
 	<div class="container">
 		<div class="row">
-			<p class="col-12 text-center">Select desired characters and rest of the pool you wish to draw from!</p>
+			<p class="col-12 text-center">What setup will you run with today?</p>
 			<p id="drawBtn" class="col-12 text-center"><button>DRAW</button></p>
 			<p id="output" class="col-12 text-center" style="border: 1px dashed gray;">&nbsp;</p>
 		</div>

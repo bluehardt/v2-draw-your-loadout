@@ -20,13 +20,14 @@ function toggleCharRelated(name) {
 		var $that = $(this);
         $('[id*=' + name + ']').each(function() {
 			this.checked = $that.is(':checked');
-			console.log($(this).closest('.form-check'));
-			$(this).closest('.form-check').toggleClass('d-none');
 		});
 	});
 };
 
-//draw loadout
+//TODO: toggle class specific weapons
+function toggleClassRelated() {};
+
+//TODO: generate loadout
 function drawLoadout() {
 	chars_arr = [];
 	cls_arr = [];
@@ -76,7 +77,7 @@ function drawLoadout() {
 	
 	rand_wpnm_name = rand_wpnm.substring(rand_wpnm.indexOf('-') + 1);
 	
-	//in case of Bardin Slayer he can also equip melee weapons in 2nd slot (same goes for resources)
+	//in case of bardin slayer he can also equip melee weapons in 2nd slot (same goes for resources)
 	if(rand_cls.includes(cls_str.BARDIN_SLR)) {
 		wpnr_arr = wpnm_arr.concat();
 		res_wpnr = Object.assign({}, res_wpnm, res_wpnr);
