@@ -1,3 +1,5 @@
+function setText() {};
+
 function createCheckbox(type, name, label) {
 	var html = '<div class="form-check">' +
 			'<input id="' + type + '-' + name + '" type="checkbox" name="' + type + '-' + name + '" class="form-check-input">' +
@@ -8,10 +10,9 @@ function createCheckbox(type, name, label) {
 }
 
 function createSection(section_name, section_type, json, resource, css) {
-	var html = '';
+	var html = '<div class="' + css + '">';
 
-	html += '<div class="' + css + '">' +
-			'<div>' + section_name + ':</div>';
+	html += section_name ?  '<div>' + section_name + ':</div>' : '';
 
 	var arr = Object.values(json);
 	var res = Object.values(resource);

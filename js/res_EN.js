@@ -97,6 +97,11 @@ res_wpnr = {
 	[wpnr_str.KERI_VXBOW]: 'Volley Crossbow',
 };
 
+res_options = {
+	[options_str.DLC_BTU]: 'Disable <b>Back to Ubersreik</b> weapons',
+	[options_str.DLC_WOM]: 'Disable <b>Winds of Magic</b> weapons',
+};
+
 res_other = {
 	description_text: 'Select desired characters and rest of the pool you wish to draw from!',
 	draw_btn: 'DRAW',

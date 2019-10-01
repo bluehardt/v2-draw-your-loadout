@@ -8,9 +8,15 @@ function rand(max) {
 function toggleAll() {
 	$('#select-all').click(function(event) {
 		var $that = $(this);
-        $('input').each(function() {
-            this.checked = $that.is(':checked');
-        });
+		var cat_arr = Object.values(cat_str);
+		
+		for(var i=0; i < cat_arr.length; i++) {
+			$('input[id*=' + cat_arr[i] + ']').each(function() {
+				if(!this.disabled) {
+					this.checked = $that.is(':checked');
+				};
+			});
+		}
 	});
 };
 
@@ -19,15 +25,24 @@ function toggleCharRelated(name) {
 	$('#chars-' + name).click(function(event) {
 		var $that = $(this);
         $('[id*=' + name + ']').each(function() {
-			this.checked = $that.is(':checked');
+			if(!this.disabled) {
+				this.checked = $that.is(':checked');
+			}
 		});
 	});
 };
 
-//TODO: toggle class specific weapons
-function toggleClassRelated() {};
+function disableWeapons(name, arr) {
+	$('#options-' + name).click(function(event) {
+		for(var i=0; i < arr.length; i++) {
+			var input = $('[id*=' + arr[i] + ']');
+			input.prop('disabled', $(this).is(':checked'));
+			input.prop('checked', false);
+		}
+	});
+};
 
-//TODO: generate loadout
+//draw loadout
 function drawLoadout() {
 	chars_arr = [];
 	cls_arr = [];

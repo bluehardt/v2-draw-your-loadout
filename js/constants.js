@@ -100,3 +100,24 @@ const wpnr_str = {
 	KERI_SBOW: 'keri-sbow-123',
 	KERI_VXBOW: 'keri-vxbow-3',
 };
+
+const options_str = {
+	DLC_BTU: 'dlc-btu',
+	DLC_WOM: 'dlc-wom',
+};
+
+const dlc_btu_wpn = [
+	wpnm_str.SALTZ_AXENFLC,
+	wpnm_str.KRUBER_MACENSWRD,
+	wpnm_str.BARDIN_HMMRDUAL,
+	wpnm_str.KERI_AXE,
+	wpnm_str.SIENNA_CRWBILL,
+];
+
+const dlc_wom_wpn = [
+	wpnm_str.SALTZ_BILLHK,
+	wpnm_str.KRUBER_SPR,
+	wpnr_str.BARDIN_TAXES,
+	wpnm_str.KERI_SPRNSHLD,
+	wpnm_str.SIENNA_FLAIL,
+];
