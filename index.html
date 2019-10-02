@@ -33,6 +33,10 @@ function init() {
 	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CLASSES', 'cls', cls_str, res_cls, 'classes');
 	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection('MELEE', 'wpnm', wpnm_str, res_wpnm, 'melee');
 	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_wpnr, 'ranged');
+	
+	//read from local storage
+	loadLocalStorage(options_str.DLC_BTU, dlc_btu_wpn);
+	loadLocalStorage(options_str.DLC_WOM, dlc_wom_wpn);
 }
 </script>
 </head>

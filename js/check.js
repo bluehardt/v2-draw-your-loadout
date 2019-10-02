@@ -4,6 +4,23 @@ function rand(max) {
 	return Math.floor(Math.random() * (max - min)) + min;
 };
 
+function loadLocalStorage(name, array) {
+	var arr = Object.values(array);
+
+	var opt = $('#options-' + name)[0];
+	opt.checked = JSON.parse(localStorage.getItem('disable-' + name));
+	console.log('opt.checked', opt.checked);
+	
+	if(opt.checked) {
+		for(var j=0; j < arr.length; j++) {
+			var input = $('[id*=' + arr[j] + ']');
+			input.prop('disabled', opt.checked);
+			input.prop('checked', false);
+			console.log(input);
+		}
+	}
+};
+
 //toggle all inputs
 function toggleAll() {
 	$('#select-all').click(function(event) {
@@ -39,6 +56,8 @@ function disableWeapons(name, arr) {
 			input.prop('disabled', $(this).is(':checked'));
 			input.prop('checked', false);
 		}
+		
+		localStorage.setItem('disable-' + name, $(this).is(':checked'));
 	});
 };
 
