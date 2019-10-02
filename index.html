@@ -28,7 +28,14 @@ $(document).ready(function() {
 	});
 });
 
-function init() {
+//TODO: keep and eye on it...
+async function ajax() {
+	$('#lastUpdate')[0].innerHTML = await getLastUpdateDate();
+};
+
+function init() {	
+	ajax();
+
 	document.getElementsByClassName('col-options')[0].innerHTML = createSection('', 'options', options_str, res_options, 'options');
 	document.getElementsByClassName('col-chars')[0].innerHTML = createSection('CHARACTERS', 'chars', ch_str, res_chars, 'chars');
 	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CLASSES', 'cls', cls_str, res_cls, 'classes');
@@ -71,8 +78,9 @@ function init() {
 	</div>
 <footer class="fixed-bottom">
 	<div class="container">
-		<div class="row">
-			<div class="col-12 text-right p-1">Created by <a href="https://steamcommunity.com/id/bluehardt">Blue</a></div>
+		<div class="row p-1 small">
+			<div id="lastUpdate" class="col-6"></div>
+			<div class="col-6 text-right">Created by <a href="https://steamcommunity.com/id/bluehardt">Blue</a></div>
 		</div>
 	</div>
 </footer>
