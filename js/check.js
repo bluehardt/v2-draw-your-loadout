@@ -22,17 +22,21 @@ function loadLocalStorage(name, array) {
 //toggle all inputs
 function toggleAll() {
 	$('#select-all').click(function(event) {
-		var $that = $(this);
-		var cat_arr = Object.values(cat_str);
-		
-		for(var i=0; i < cat_arr.length; i++) {
-			$('input[id*=' + cat_arr[i] + ']').each(function() {
-				if(!this.disabled) {
-					this.checked = $that.is(':checked');
-				};
-			});
-		}
+		var state = $(this).is(':checked');
+		setAll(cat_str, state);
 	});
+};
+
+function setAll(json, state) {
+	var arr = Object.values(json);
+
+	for(var i=0; i < arr.length; i++) {
+		$('input[id*=' + arr[i] + ']').each(function() {
+			if(!this.disabled) {
+				this.checked = state;
+			};
+		});
+	}
 };
 
 //toggle all subclasses and weapons for a chosen character

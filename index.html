@@ -34,6 +34,11 @@ function init() {
 	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection('MELEE', 'wpnm', wpnm_str, res_wpnm, 'melee');
 	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_wpnr, 'ranged');
 	
+	//set all heroes by default
+	var defaultAll = $('#select-all')[0];
+	defaultAll.checked = true;
+	setAll(cat_str, defaultAll.checked);
+	
 	//read from local storage
 	loadLocalStorage(options_str.DLC_BTU, dlc_btu_wpn);
 	loadLocalStorage(options_str.DLC_WOM, dlc_wom_wpn);
