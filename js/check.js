@@ -9,14 +9,12 @@ function loadLocalStorage(name, array) {
 
 	var opt = $('#options-' + name)[0];
 	opt.checked = JSON.parse(localStorage.getItem('disable-' + name));
-	console.log('opt.checked', opt.checked);
 	
 	if(opt.checked) {
 		for(var j=0; j < arr.length; j++) {
 			var input = $('[id*=' + arr[j] + ']');
 			input.prop('disabled', opt.checked);
 			input.prop('checked', false);
-			console.log(input);
 		}
 	}
 };
