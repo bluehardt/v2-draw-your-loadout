@@ -2,3 +2,9 @@
 	border-top: 1px gray solid;
 	background-color: white;
 }
+
+@media (max-width: 768px) {
+	.section-name {
+		text-align: center;
+	}
+}

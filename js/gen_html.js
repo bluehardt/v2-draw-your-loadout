@@ -12,7 +12,7 @@ function createCheckbox(type, name, label) {
 function createSection(section_name, section_type, json, resource, css) {
 	var html = '<div class="' + css + '">';
 
-	html += section_name ?  '<div>' + section_name + ':</div>' : '';
+	html += section_name ?  '<div class="section-name font-weight-bold">' + section_name + '</div>' : '';
 
 	var arr = Object.values(json);
 	var res = Object.values(resource);
