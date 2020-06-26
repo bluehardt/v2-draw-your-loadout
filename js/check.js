@@ -36,12 +36,12 @@ function loadDLCStore(name, weapons, career) {
 			input.prop('disabled', opt.checked);
 			input.prop('checked', false);
 		}
-	}
 
-	if (career) {
-		var input = $('[id*=' + career + ']');
-		input.prop('disabled', opt.checked);
-		input.prop('checked', false);
+		if (career) {
+			var input = $('[id*=' + career + ']');
+			input.prop('disabled', opt.checked);
+			input.prop('checked', false);
+		}
 	}
 };
 
@@ -55,10 +55,11 @@ function toggleAll() {
 
 function setAll(json, state) {
 	var arr = Object.values(json);
+	console.log('setall', arr)
 
-	for(var i=0; i < arr.length; i++) {
+	for (var i=0; i < arr.length; i++) {
 		$('input[id*=' + arr[i] + ']').each(function() {
-			if(!this.disabled) {
+			if (!this.disabled) {
 				this.checked = state;
 			};
 		});
@@ -70,7 +71,7 @@ function toggleCharRelated(name) {
 	$('#chars-' + name).click(function(event) {
 		var $that = $(this);
         $('[id*=' + name + ']').each(function() {
-			if(!this.disabled) {
+			if (!this.disabled) {
 				this.checked = $that.is(':checked');
 			}
 		});
