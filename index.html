@@ -21,8 +21,9 @@ $(document).ready(function() {
 	toggleCharRelated(ch_str.SIENNA);
 	toggleCharRelated(ch_str.KERI);
 	
-	disableWeapons(options_str.DLC_BTU, dlc_btu_wpn);
-	disableWeapons(options_str.DLC_WOM, dlc_wom_wpn);
+	disableDLC(options_str.DLC_BTU, dlc_btu_wpn);
+	disableDLC(options_str.DLC_WOM, dlc_wom_wpn);
+	disableDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
 	
 	$('#drawBtn').click(function() {
 		document.getElementById('output').innerText = drawLoadout();
@@ -49,8 +50,9 @@ function init() {
 	setAll(cat_str, defaultAll.checked);
 	
 	//read from local storage
-	loadLocalStorage(options_str.DLC_BTU, dlc_btu_wpn);
-	loadLocalStorage(options_str.DLC_WOM, dlc_wom_wpn);
+	loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
+	loadDLCStore(options_str.DLC_WOM, dlc_wom_wpn);
+	loadDLCStore(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
 }
 </script>
 </head>

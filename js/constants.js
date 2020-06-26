@@ -20,6 +20,7 @@ const cls_str = {
 	KRUBER_MRC: 'kruber-mrc-1',
 	KRUBER_HNT: 'kruber-hnt-2',
 	KRUBER_FK: 'kruber-fk-3',
+	KRUBER_GK: 'kruber-gk-4',
 	BARDIN_RV: 'bardin-rv-1',
 	BARDIN_IB: 'bardin-ib-2',
 	BARDIN_SLR: 'bardin-slr-3',
@@ -39,16 +40,18 @@ const wpnm_str = {
 	SALTZ_SWRD2H: 'saltz-swrd2h-123',
 	SALTZ_AXENFLC: 'saltz-axenflc-123',
 	SALTZ_BILLHK: 'saltz-billhk-123',
-	KRUBER_EXEC: 'kruber-exec-123',
+	KRUBER_EXEC: 'kruber-exec-1234',
 	KRUBER_HLB: 'kruber-hlb-123',
-	KRUBER_MACE1H: 'kruber-mace1h-123',
+	KRUBER_MACE1H: 'kruber-mace1h-1234',
 	KRUBER_MACENSHLD: 'kruber-macenshld-123',
-	KRUBER_SWRD1H: 'kruber-swrd1h-123',
+	KRUBER_SWRD1H: 'kruber-swrd1h-1234',
 	KRUBER_SWRDNSHLD: 'kruber-swrdnshld-123',
-	KRUBER_HMMR2H: 'kruber-hmmr2h-123',
-	KRUBER_SWRD2H: 'kruber-swrd2h-123',
+	KRUBER_HMMR2H: 'kruber-hmmr2h-1234',
+	KRUBER_SWRD2H: 'kruber-swrd2h-1234',
 	KRUBER_MACENSWRD: 'kruber-macenswrd-123',
 	KRUBER_SPR: 'kruber-spr-12',
+	KRUBER_BRETSWRD: 'kruber-bretsword-1234',
+	KRUBER_BRETSWRDNSHLD: 'kruber-bretswrdnshld-4',
 	BARDIN_AXE: 'bardin-axe-123',
 	BARDIN_AXENSHLD: 'bardin-axenshld-12',
 	BARDIN_AXEDUAL: 'bardin-axedual-3',
@@ -104,6 +107,7 @@ const wpnr_str = {
 const options_str = {
 	DLC_BTU: 'dlc-btu',
 	DLC_WOM: 'dlc-wom',
+	DLC_GK: 'dlc-gk',
 };
 
 const dlc_btu_wpn = [
@@ -121,3 +125,10 @@ const dlc_wom_wpn = [
 	wpnm_str.KERI_SPRNSHLD,
 	wpnm_str.SIENNA_FLAIL,
 ];
+
+const dlc_gk_wpn = [
+	wpnm_str.KRUBER_BRETSWRD,
+	wpnm_str.KRUBER_BRETSWRDNSHLD,
+];
+
+const dlc_gk_cls = cls_str.KRUBER_GK;

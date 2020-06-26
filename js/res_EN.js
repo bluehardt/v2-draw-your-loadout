@@ -16,6 +16,7 @@ res_cls = {
 	[cls_str.KRUBER_MRC]: 'Mercenary',
 	[cls_str.KRUBER_HNT]: 'Huntsman',
 	[cls_str.KRUBER_FK]: 'Foot Knight',
+	[cls_str.KRUBER_GK]: 'Grail Knight',
 	[cls_str.BARDIN_RV]: 'Ranger Veteran',
 	[cls_str.BARDIN_IB]: 'Ironbreaker',
 	[cls_str.BARDIN_SLR]: 'Slayer',
@@ -45,6 +46,8 @@ res_wpnm = {
 	[wpnm_str.KRUBER_SWRD2H]: 'Greatsword',
 	[wpnm_str.KRUBER_MACENSWRD]: 'Mace & Sword',
 	[wpnm_str.KRUBER_SPR]: 'Tuskgor Spear',
+	[wpnm_str.KRUBER_BRETSWRD]: 'Bretonnian Longsword',
+	[wpnm_str.KRUBER_BRETSWRDNSHLD]: 'Bretonnian Sword & Shield',
 	[wpnm_str.BARDIN_AXE]: 'Axe',
 	[wpnm_str.BARDIN_AXENSHLD]: 'Axe & Shield',
 	[wpnm_str.BARDIN_AXEDUAL]: 'Dual Axes',
@@ -100,6 +103,7 @@ res_wpnr = {
 res_options = {
 	[options_str.DLC_BTU]: 'Disable <b>Back to Ubersreik</b> weapons',
 	[options_str.DLC_WOM]: 'Disable <b>Winds of Magic</b> weapons',
+	[options_str.DLC_GK]: 'Disable <b>Grail Knight</b> DLC',
 };
 
 res_other = {

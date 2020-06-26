@@ -25,18 +25,23 @@ function rand(max) {
 	return Math.floor(Math.random() * (max - min)) + min;
 };
 
-function loadLocalStorage(name, array) {
-	var arr = Object.values(array);
-
+function loadDLCStore(name, weapons, career) {
+	var arr = Object.values(weapons);
 	var opt = $('#options-' + name)[0];
 	opt.checked = JSON.parse(localStorage.getItem('disable-' + name));
 	
-	if(opt.checked) {
+	if (opt.checked) {
 		for(var j=0; j < arr.length; j++) {
 			var input = $('[id*=' + arr[j] + ']');
 			input.prop('disabled', opt.checked);
 			input.prop('checked', false);
 		}
+	}
+
+	if (career) {
+		var input = $('[id*=' + career + ']');
+		input.prop('disabled', opt.checked);
+		input.prop('checked', false);
 	}
 };
 
@@ -72,15 +77,29 @@ function toggleCharRelated(name) {
 	});
 };
 
-function disableWeapons(name, arr) {
+function disableDLC(name, weapons, career) {
 	$('#options-' + name).click(function(event) {
-		for(var i=0; i < arr.length; i++) {
-			var input = $('[id*=' + arr[i] + ']');
+		for(var i=0; i < weapons.length; i++) {
+			var input = $('[id*=' + weapons[i] + ']');
+			input.prop('disabled', $(this).is(':checked'));
+			input.prop('checked', false);
+		}
+
+		if (career) {
+			var input = $('[id*=' + career + ']');
 			input.prop('disabled', $(this).is(':checked'));
 			input.prop('checked', false);
 		}
 		
 		localStorage.setItem('disable-' + name, $(this).is(':checked'));
+	});
+};
+
+function disableCareer(name, cls) {
+	$('#options-' + name).click(function(event) {
+		var input = $('[id*=' + cls + ']');
+		input.prop('disabled', $(this).is(':checked'));
+		input.prop('checked', false);
 	});
 };
 
@@ -135,7 +154,7 @@ function drawLoadout() {
 	rand_wpnm_name = rand_wpnm.substring(rand_wpnm.indexOf('-') + 1);
 	
 	//in case of bardin slayer he can also equip melee weapons in 2nd slot (same goes for resources)
-	if(rand_cls.includes(cls_str.BARDIN_SLR)) {
+	if(rand_cls.includes(cls_str.BARDIN_SLR) || rand_cls.includes(cls_str.KRUBER_GK)) {
 		wpnr_arr = wpnm_arr.concat();
 		res_wpnr = Object.assign({}, res_wpnm, res_wpnr);
 	}
