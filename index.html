@@ -21,9 +21,9 @@ $(document).ready(function() {
 	toggleHeroRelated(ch_str.SIENNA);
 	toggleHeroRelated(ch_str.KERI);
 	
-	disableDLC(options_str.DLC_BTU, dlc_btu_wpn);
-	disableDLC(options_str.DLC_WOM, dlc_wom_wpn);
-	disableDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
+	toggleDLC(options_str.DLC_BTU, dlc_btu_wpn);
+	toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
+	toggleDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
 	
 	$('#drawBtn').click(function() {
 		document.getElementById('output').innerHTML = drawLoadout();

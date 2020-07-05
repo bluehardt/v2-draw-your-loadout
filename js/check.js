@@ -28,7 +28,7 @@ function rand(max) {
 function loadDLCStore(name, weapons, career) {
 	var arr = Object.values(weapons);
 	var opt = $('#options-' + name)[0];
-	opt.checked = JSON.parse(localStorage.getItem('disable-' + name));
+	opt.checked = JSON.parse(localStorage.getItem('toggle-' + name));
 	
 	if (opt.checked) {
 		for(var j=0; j < arr.length; j++) {
@@ -96,21 +96,21 @@ function toggleHeroRelated(name) {
 	});
 };
 
-function disableDLC(name, weapons, career) {
+function toggleDLC(name, weapons, career) {
 	$('#options-' + name).click(function(event) {
 		for(var i=0; i < weapons.length; i++) {
 			var input = $('[id*=' + weapons[i] + ']');
 			input.prop('disabled', $(this).is(':checked'));
-			input.prop('checked', false);
+			input.prop('checked', !$(this).is(':checked'));
 		}
 
 		if (career) {
 			var input = $('[id*=' + career + ']');
 			input.prop('disabled', $(this).is(':checked'));
-			input.prop('checked', false);
+			input.prop('checked', !$(this).is(':checked'));
 		}
 		
-		localStorage.setItem('disable-' + name, $(this).is(':checked'));
+		localStorage.setItem('toggle-' + name, $(this).is(':checked'));
 	});
 };
 
