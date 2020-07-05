@@ -54,25 +54,43 @@ function toggleAll() {
 };
 
 function setAll(json, state) {
-	var arr = Object.values(json);
-	console.log('setall', arr)
+	var names = Object.values(ch_str);
 
-	for (var i=0; i < arr.length; i++) {
-		$('input[id*=' + arr[i] + ']').each(function() {
-			if (!this.disabled) {
-				this.checked = state;
-			};
+	names.forEach(name => {
+		$('.group-' + name + ' input').prop('checked', state);
+		$('[class*=group-' + name + '-]').each(function() {
+			state ? $(this).show() : $(this).hide();
+
+			if (!$(this).children('input').prop('disabled')) {
+				$(this).children('input').prop('checked', state);
+			}
 		});
-	}
+	});
 };
 
 //toggle all subclasses and weapons for a chosen character
 function toggleHeroRelated(name) {
 	$('#chars-' + name).click(function(event) {
-		var $that = $(this);
-        $('[id*=' + name + ']').each(function() {
+		var $hero = $(this);
+
+		// hiding/showing labels and checkboxes
+		if (!$hero.is(':checked')) {
+			$('[class*=group-' + name + '-]').each(function() {
+				$(this).hide();
+			});
+
+			// uncheck 'ALL'
+			$('#select-all').prop('checked', false);
+		} else {
+			$('[class*=group-' + name + '-]').each(function() {
+				$(this).show();
+			});
+		}
+
+		// checking logic
+		$('[id*=' + name + ']').each(function() {
 			if (!this.disabled) {
-				this.checked = $that.is(':checked');
+				this.checked = $hero.is(':checked');
 			}
 		});
 	});

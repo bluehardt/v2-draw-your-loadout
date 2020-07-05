@@ -1,7 +1,7 @@
 function setText() {};
 
 function createCheckbox(type, name, label) {
-	var html = '<div class="form-check">' +
+	var html = '<div class="form-check group-' + name + '">' +
 			'<input id="' + type + '-' + name + '" type="checkbox" name="' + type + '-' + name + '" class="form-check-input">' +
 			'<label id="label-' + name + '" for="' + type + '-' + name + '" class="form-check-label">' + label + '</label>' +
 			'</div>';
