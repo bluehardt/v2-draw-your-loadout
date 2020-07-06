@@ -14,6 +14,33 @@ html {
 	background-color: white;
 }
 
+.tip {
+    text-decoration: none
+}
+.tip:hover {
+    cursor: help;
+    position: relative
+}
+.tip span {
+	display: none
+}
+.tip:hover span {
+	white-space: nowrap;
+    padding: 5px;
+    display: block;
+    z-index: 100;
+	background-color: transparent;
+	border-radius: 5px;
+    left: 0px;
+    margin: 10px;
+    position: absolute;
+    top: -50px;
+	text-decoration: none;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
 @media (max-width: 768px) {
 	.section-name {
 		text-align: center;
