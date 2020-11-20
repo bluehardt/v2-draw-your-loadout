@@ -20,6 +20,7 @@ res_cls = {
 	[cls_str.BARDIN_RV]: 'Ranger Veteran',
 	[cls_str.BARDIN_IB]: 'Ironbreaker',
 	[cls_str.BARDIN_SLR]: 'Slayer',
+	[cls_str.BARDIN_OE]: 'Outcast Engineer',
 	[cls_str.SIENNA_BW]: 'Battle Wizard',
 	[cls_str.SIENNA_PR]: 'Pyromancer',
 	[cls_str.SIENNA_UNC]: 'Unchained',
@@ -57,6 +58,7 @@ res_wpnm = {
 	[wpnm_str.BARDIN_HMMR2H]: 'Great Hammer',
 	[wpnm_str.BARDIN_PICK]: 'War Pick',
 	[wpnm_str.BARDIN_HMMRDUAL]: 'Dual Hammers',
+	[wpnm_str.BARDIN_COGHMMR]: 'Cog Hammer',
 	[wpnm_str.SIENNA_DAG]: 'Dagger',
 	[wpnm_str.SIENNA_SWRDFIRE]: 'Fire Sword',
 	[wpnm_str.SIENNA_MACE2H]: 'Mace',
@@ -89,6 +91,7 @@ res_wpnr = {
 	[wpnr_str.BARDIN_GRUDGE]: 'Grudge-Raker',
 	[wpnr_str.BARDIN_HAND]: 'Handgun',
 	[wpnr_str.BARDIN_TAXES]: 'Throwing Axes',
+	[wpnr_str.BARDIN_MWPSTL]: 'Masterwork Pistol',
 	[wpnr_str.SIENNA_BEAM]: 'Beam Staff',
 	[wpnr_str.SIENNA_BOLT]: 'Bolt Staff',
 	[wpnr_str.SIENNA_CONF]: 'Conflagration Staff',
@@ -104,6 +107,7 @@ res_options = {
 	[options_str.DLC_BTU]: 'Disable <b>Back to Ubersreik</b> weapons',
 	[options_str.DLC_WOM]: 'Disable <b>Winds of Magic</b> weapons',
 	[options_str.DLC_GK]: 'Disable <b>Grail Knight</b> DLC',
+	[options_str.DLC_OE]: 'Disable <b>Outcast Engineer</b> DLC',
 };
 
 res_other = {

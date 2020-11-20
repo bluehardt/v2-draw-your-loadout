@@ -24,6 +24,7 @@ const cls_str = {
 	BARDIN_RV: 'bardin-rv-1',
 	BARDIN_IB: 'bardin-ib-2',
 	BARDIN_SLR: 'bardin-slr-3',
+	BARDIN_OE: 'bardin-oe-4',
 	SIENNA_BW: 'sienna-bw-1',
 	SIENNA_PR: 'sienna-pr-2',
 	SIENNA_UNC: 'sienna-unc-3',
@@ -52,15 +53,16 @@ const wpnm_str = {
 	KRUBER_SPR: 'kruber-spr-12',
 	KRUBER_BRETSWRD: 'kruber-bretsword-1234',
 	KRUBER_BRETSWRDNSHLD: 'kruber-bretswrdnshld-4',
-	BARDIN_AXE: 'bardin-axe-123',
-	BARDIN_AXENSHLD: 'bardin-axenshld-12',
+	BARDIN_AXE: 'bardin-axe-1234',
+	BARDIN_AXENSHLD: 'bardin-axenshld-124',
 	BARDIN_AXEDUAL: 'bardin-axedual-3',
-	BARDIN_AXE2H: 'bardin-axe2h-123',
-	BARDIN_HMMR: 'bardin-hmmr-123',
-	BARDIN_HMMRNSHLD: 'bardin-hmmrnshld-12',
-	BARDIN_HMMR2H: 'bardin-hmmr2h-123',
-	BARDIN_PICK: 'bardin-pick-123',
-	BARDIN_HMMRDUAL: 'bardin-hmmrdual-123',
+	BARDIN_AXE2H: 'bardin-axe2h-1234',
+	BARDIN_HMMR: 'bardin-hmmr-1234',
+	BARDIN_HMMRNSHLD: 'bardin-hmmrnshld-124',
+	BARDIN_HMMR2H: 'bardin-hmmr2h-1234',
+	BARDIN_PICK: 'bardin-pick-1234',
+	BARDIN_HMMRDUAL: 'bardin-hmmrdual-1234',
+	BARDIN_COGHMMR: 'bardin-coghmmr-1234',
 	SIENNA_DAG: 'sienna-dag-123',
 	SIENNA_SWRDFIRE: 'sienna-swrdfire-123',
 	SIENNA_MACE2H: 'sienna-mace2h-123',
@@ -88,11 +90,12 @@ const wpnr_str = {
 	KRUBER_LBOW: 'kruber-lbow-2',
 	KRUBER_RPTR: 'kruber-rptr-123',
 	BARDIN_XBOW: 'bardin-xbow-12',
-	BARDIN_DRKPSTL: 'bardin-drkpstl-2',
-	BARDIN_DKRGUN: 'bardin-drkgun-2',
-	BARDIN_GRUDGE: 'bardin-grudge-12',
-	BARDIN_HAND: 'bardin-hand-12',
+	BARDIN_DRKPSTL: 'bardin-drkpstl-24',
+	BARDIN_DKRGUN: 'bardin-drkgun-24',
+	BARDIN_GRUDGE: 'bardin-grudge-124',
+	BARDIN_HAND: 'bardin-hand-124',
 	BARDIN_TAXES: 'bardin-taxes-13',
+	BARDIN_MWPSTL: 'bardin-mwpstl-124',
 	SIENNA_BEAM: 'sienna-beam-123',
 	SIENNA_BOLT: 'sienna-bolt-123',
 	SIENNA_CONF: 'sienna-conf-123',
@@ -108,6 +111,7 @@ const options_str = {
 	DLC_BTU: 'dlc-btu',
 	DLC_WOM: 'dlc-wom',
 	DLC_GK: 'dlc-gk',
+	DLC_OE: 'dlc-oe',
 };
 
 const dlc_btu_wpn = [
@@ -131,4 +135,10 @@ const dlc_gk_wpn = [
 	wpnm_str.KRUBER_BRETSWRDNSHLD,
 ];
 
+const dlc_oe_wpn = [
+	wpnm_str.BARDIN_COGHMMR,
+	wpnr_str.BARDIN_MWPSTL,
+];
+
 const dlc_gk_cls = cls_str.KRUBER_GK;
+const dlc_oe_cls = cls_str.BARDIN_OE;

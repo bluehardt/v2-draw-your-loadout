@@ -24,6 +24,7 @@ $(document).ready(function() {
 	toggleDLC(options_str.DLC_BTU, dlc_btu_wpn);
 	toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
 	toggleDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
+	toggleDLC(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
 	
 	$('#drawBtn').click(function() {
 		document.getElementById('output').innerHTML = drawLoadout();
@@ -53,6 +54,7 @@ function init() {
 	loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
 	loadDLCStore(options_str.DLC_WOM, dlc_wom_wpn);
 	loadDLCStore(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
+	loadDLCStore(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
 }
 </script>
 </head>
