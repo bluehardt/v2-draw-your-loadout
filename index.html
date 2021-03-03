@@ -2,15 +2,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://i18njs.com/js/i18n.min.js">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
+<script type='text/javascript' src='js/i18n/pl.js'></script>
 <script type='text/javascript' src='js/constants.js'></script>
 <script type='text/javascript' src='js/res_EN.js'></script>
 <script type='text/javascript' src='js/gen_html.js'></script>
 <script type='text/javascript' src='js/check.js'></script>
+<script type='text/javascript' src='js/change_language.js'></script>
 <script type='text/javascript'>
 $(document).ready(function() {
 	toggleAll();
@@ -34,6 +37,8 @@ $(document).ready(function() {
 //TODO: keep and eye on it...
 async function ajax() {
 	$('#lastUpdate')[0].innerHTML = await getLastUpdateDate();
+
+	console.log(await pl("hello"))
 };
 
 function init() {	
@@ -59,6 +64,12 @@ function init() {
 </script>
 </head>
 <body onload="init()" class="pb-5">
+	<header class="container">
+		<select name="" id="" class="float-right">
+			<option value="en" >🇺🇸</option>
+			<option value="pl" selected>🇵🇱</option>
+		</select>
+	</header>
 	<div class="container">
 		<div class="row">
 			<div class="col-options col-12"></div>

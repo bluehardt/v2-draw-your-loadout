@@ -113,4 +113,5 @@ res_options = {
 res_other = {
 	description_text: 'Select desired characters and rest of the pool you wish to draw from!',
 	draw_btn: 'DRAW',
+	header_language: 'Language'
 };
