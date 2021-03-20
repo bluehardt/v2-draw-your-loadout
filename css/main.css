@@ -49,8 +49,51 @@ html {
 	z-index: 1;
 }
 
+.options-preset {
+	position: absolute;
+	top: 5px;
+	right: -15px;
+	z-index: 1;
+}
+
+.options-preset .options-btn {
+	display: block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: url(../icons/settings.svg);
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: center;
+	background-color: #6c757d;
+}
+
 @media (max-width: 768px) {
+	.draw-container .draw-description {
+		font-size: .8rem;
+	}
+
 	.section-name {
 		text-align: center;
+	}
+
+	.options-preset {
+		position: fixed;
+		top: unset;
+		bottom: 50px;
+		right: 10px;
+		z-index: 1;
+	}
+
+	.options-preset .options-btn {
+		display: block;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background: url(../icons/settings.svg);
+		background-repeat: no-repeat;
+		background-size: 40px;
+		background-position: center;
+		background-color: #6c757d;
 	}
 }

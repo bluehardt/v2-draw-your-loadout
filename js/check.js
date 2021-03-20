@@ -109,6 +109,24 @@ function toggleHeroRelated(name) {
 
 function toggleDLC(name, weapons, career) {
 	$('#options-' + name).click(function(event) {
+		console.log('option dlc click')
+		for(var i=0; i < weapons.length; i++) {
+			var input = $('[id*=' + weapons[i] + ']');
+			input.prop('disabled', $(this).is(':checked'));
+			input.prop('checked', !$(this).is(':checked'));
+		}
+
+		if (career) {
+			var input = $('[id*=' + career + ']');
+			input.prop('disabled', $(this).is(':checked'));
+			input.prop('checked', !$(this).is(':checked'));
+		}
+		
+		localStorage.setItem('toggle-' + name, $(this).is(':checked'));
+	});
+
+	$('#modal-options-' + name).click(function(event) {
+		console.log('option dlc click')
 		for(var i=0; i < weapons.length; i++) {
 			var input = $('[id*=' + weapons[i] + ']');
 			input.prop('disabled', $(this).is(':checked'));
@@ -144,7 +162,9 @@ function savePreset() {
 	var stringifiedPreset = JSON.stringify(presetData);	
 
 	localStorage.setItem('preset', stringifiedPreset);
-	alert('PRESET SAVED - active checkboxes will stay unless yo')
+
+	$('.alert').hide();
+	$('#alert-preset-save').show();
 };
 
 /*
@@ -156,7 +176,7 @@ function loadPreset() {
 	if (preset) {
 		preset = JSON.parse(preset);
 
-		
+
 		var names = preset.filter(el => el.includes('chars-'));
 		names.forEach((name, index) => {
 			names[index] = name.replace('chars-', '');
@@ -168,7 +188,6 @@ function loadPreset() {
 		names.forEach(name => {
 			if (Object.values(ch_str).find(el => name.includes(el))) {
 				$('[class*=group-' + name + '-]').show();
-				console.log('hello?', name)
 			}
 
 			preset.forEach(item => {
@@ -186,7 +205,9 @@ function loadPreset() {
 */
 function deletePreset() {
 	localStorage.removeItem('preset');
-	alert('PRESET DELETED - everything will be checked after next page refresh')
+
+	$('.alert').hide();
+	$('#alert-preset-clear').show();
 };
 
 function disableCareer(name, cls) {

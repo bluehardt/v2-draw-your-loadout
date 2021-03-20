@@ -4,9 +4,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script type='text/javascript' src='js/constants.js'></script>
 <script type='text/javascript' src='js/res_EN.js'></script>
 <script type='text/javascript' src='js/gen_html.js'></script>
@@ -29,8 +30,6 @@ $(document).ready(function() {
 	$('#drawBtn').click(function() {
 		document.getElementById('output').innerHTML = drawLoadout();
 	});
-
-
 });
 
 //TODO: keep and eye on it...
@@ -41,17 +40,14 @@ async function ajax() {
 function init() {	
 	ajax();
 
-	document.getElementsByClassName('col-options')[0].innerHTML = createSection('', 'options', options_str, res_options, 'options');
+	document.getElementsByClassName('options-dlc')[0].innerHTML = createSection('', 'options', options_str, res_options, 'options');
 	document.getElementsByClassName('col-chars')[0].innerHTML = createSection('CHARACTERS', 'chars', ch_str, res_chars, 'chars');
 	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CLASSES', 'cls', cls_str, res_cls, 'classes');
 	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection('MELEE', 'wpnm', wpnm_str, res_wpnm, 'melee');
 	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_wpnr, 'ranged');
 	
-	//set all heroes by default
+	//load preset if saved, otherwise toggle all
 	loadPreset();
-	// var defaultAll = $('#select-all')[0];
-	// defaultAll.checked = true;
-	// setAll(cat_str, defaultAll.checked);
 	
 	//read from local storage
 	loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
@@ -63,34 +59,22 @@ function init() {
 </head>
 <body onload="init()" class="pb-5">
 	<div class="container">
-		<div class="row">
-			<div class="col-options col-6"></div>
-			<div class="col-6">
-				<button
-					id="save-preset"
-					class="btn btn-secondary btn-sm"
-					onclick="savePreset()"
-				>
-					Save preset
-				</button>
-				<button
-					id="delete-preset"
-					class="btn btn-secondary btn-sm"
-					onclick="deletePreset()"
-				>
-					Clear preset
-				</button>
-			</div>
+		<div class="options-row">
+			
 		</div>
 		
-		<div class="row mt-3">
-			<div class="col-12 text-center">Select desired characters and rest of the pool you wish to draw from!</div>
-		</div>
 		<div class="draw-container">
-			<div class="row mt-3" style="border: 2px dotted gray;">
+			<div class="draw-description py-3 py-sm-2">
+				<div class="col-12 text-center">Select desired characters and rest of the pool you wish to draw from!</div>
+				<div class="options-preset">
+					<button type="button" class="options-btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+					</button>
+				</div>
+			</div>
+			<div class="row" style="border: 2px dotted gray;">
 				<div id="output" class="col-12 d-inline text-center align-middle font-weight-bold p-2">&nbsp;</div>
 			</div>
-			<div class="row mt-3">
+			<div class="mt-3">
 				<p id="drawBtn" class="col-12 text-center">
 					<button class="btn btn-danger">
 						<strong>DRAW</strong>
@@ -98,7 +82,7 @@ function init() {
 				</p>
 			</div>
 		</div>
-			
+		
 		<div class="row">
 			<div class="col-chars col-sm-3"></div>
 			<div class="col-cls col-sm-3"></div>
@@ -116,5 +100,58 @@ function init() {
 			</div>
 		</div>
 	</footer>
+
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  	<div class="modal-content">
+				<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalCenterTitle">Options</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				</div>
+				<div class="modal-body">
+					<div class="options-dlc"></div>
+					<hr>
+					<div class="modal-options-preset mt-3">
+						<p>
+							<small>You can save currently checked boxes to load them next time you open the page.</small>
+						</p>
+						<button
+							id="save-preset"
+							class="save-preset-btn btn btn-secondary btn-sm mr-3"
+							onclick="savePreset()"
+						>
+							Save preset
+						</button>
+		
+						<button
+							id="delete-preset"
+							class="delete-preset-btn btn btn-secondary btn-sm"
+							onclick="deletePreset()"
+						>
+							Clear preset
+						</button>
+						
+					</div>
+
+					<div class="alert-container mt-3">
+						<div
+							id="alert-preset-save" 
+							class="alert alert-success collapse" role="alert"
+						>
+							Preset saved - checkboxes state will be remembered (until you clear it one way or another)
+						</div>
+						<div
+							id="alert-preset-clear"
+							class="alert alert-danger collapse" role="alert"
+						>
+							Preset cleared - all checkoxes will be set by default!
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
