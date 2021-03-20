@@ -53,6 +53,17 @@ function toggleAll() {
 	});
 };
 
+function hideAll() {
+	var names = Object.values(ch_str);
+
+	// pushing each checkbox's id which is currently checked
+	names.forEach(name => {
+		$('[class*=group-' + name + '-]').each(function() {
+			$(this).hide();
+		});
+	});
+}
+
 function setAll(json, state) {
 	var names = Object.values(ch_str);
 
@@ -112,6 +123,70 @@ function toggleDLC(name, weapons, career) {
 		
 		localStorage.setItem('toggle-' + name, $(this).is(':checked'));
 	});
+};
+
+/*
+	Save picked checkboxes into local storage
+*/ 
+function savePreset() {
+	var names = Object.values(ch_str);
+	var presetData = [];
+
+	// pushing each checkbox's id which is currently checked
+	names.forEach(name => {
+		$('[class*=' + name + '] input').each(function() {
+			if ($(this)[0].checked) {
+				presetData.push($(this)[0].id);
+			}
+		});
+	});
+
+	var stringifiedPreset = JSON.stringify(presetData);	
+
+	localStorage.setItem('preset', stringifiedPreset);
+	alert('PRESET SAVED - active checkboxes will stay unless yo')
+};
+
+/*
+	Load preset from local storage
+*/
+function loadPreset() {
+	var preset = localStorage.getItem('preset');
+
+	if (preset) {
+		preset = JSON.parse(preset);
+
+		
+		var names = preset.filter(el => el.includes('chars-'));
+		names.forEach((name, index) => {
+			names[index] = name.replace('chars-', '');
+		});
+
+		hideAll();
+
+		// checking boxes loaded from local storage
+		names.forEach(name => {
+			if (Object.values(ch_str).find(el => name.includes(el))) {
+				$('[class*=group-' + name + '-]').show();
+				console.log('hello?', name)
+			}
+
+			preset.forEach(item => {
+				$('[id*=' + item + ']').prop('checked', true);
+			})
+		});
+	} else {
+		$('#select-all').prop('checked', true);
+		setAll(cat_str, true);
+	}
+};
+
+/*
+	Delete preset from local storage
+*/
+function deletePreset() {
+	localStorage.removeItem('preset');
+	alert('PRESET DELETED - everything will be checked after next page refresh')
 };
 
 function disableCareer(name, cls) {

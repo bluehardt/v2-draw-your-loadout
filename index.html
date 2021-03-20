@@ -29,6 +29,8 @@ $(document).ready(function() {
 	$('#drawBtn').click(function() {
 		document.getElementById('output').innerHTML = drawLoadout();
 	});
+
+
 });
 
 //TODO: keep and eye on it...
@@ -46,9 +48,10 @@ function init() {
 	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_wpnr, 'ranged');
 	
 	//set all heroes by default
-	var defaultAll = $('#select-all')[0];
-	defaultAll.checked = true;
-	setAll(cat_str, defaultAll.checked);
+	loadPreset();
+	// var defaultAll = $('#select-all')[0];
+	// defaultAll.checked = true;
+	// setAll(cat_str, defaultAll.checked);
 	
 	//read from local storage
 	loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
@@ -61,16 +64,39 @@ function init() {
 <body onload="init()" class="pb-5">
 	<div class="container">
 		<div class="row">
-			<div class="col-options col-12"></div>
+			<div class="col-options col-6"></div>
+			<div class="col-6">
+				<button
+					id="save-preset"
+					class="btn btn-secondary btn-sm"
+					onclick="savePreset()"
+				>
+					Save preset
+				</button>
+				<button
+					id="delete-preset"
+					class="btn btn-secondary btn-sm"
+					onclick="deletePreset()"
+				>
+					Clear preset
+				</button>
+			</div>
 		</div>
+		
 		<div class="row mt-3">
 			<div class="col-12 text-center">Select desired characters and rest of the pool you wish to draw from!</div>
 		</div>
-		<div class="row mt-3" style="border: 2px dotted gray;">
-			<div id="output" class="col-12 d-inline text-center align-middle font-weight-bold p-2">&nbsp;</div>
-		</div>
-		<div class="row mt-3">
-			<p id="drawBtn" class="col-12 text-center"><button>DRAW</button></p>
+		<div class="draw-container">
+			<div class="row mt-3" style="border: 2px dotted gray;">
+				<div id="output" class="col-12 d-inline text-center align-middle font-weight-bold p-2">&nbsp;</div>
+			</div>
+			<div class="row mt-3">
+				<p id="drawBtn" class="col-12 text-center">
+					<button class="btn btn-danger">
+						<strong>DRAW</strong>
+					</button>
+				</p>
+			</div>
 		</div>
 			
 		<div class="row">
