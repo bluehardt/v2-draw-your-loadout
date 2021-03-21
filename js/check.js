@@ -5,10 +5,6 @@ async function getLastUpdateDate() {
 	
 	const resp = await $.get(url);
 	
-	var options = {
-		hours: 'numeric',
-		minutes: '2-digit',
-	}
 	var last_update = new Date(resp.commit.commit.author.date);
 	last_update = last_update.toLocaleString('en-GB');
 	
@@ -291,7 +287,7 @@ function drawLoadout() {
 	
 	// results and displaying
 	var results = [
-		res_chars[rand_ch_name],
+		// res_chars[rand_ch_name],
 		res_cls[rand_cls_name],
 		res_wpnm[rand_wpnm_name],
 		res_wpnr[rand_wpnr_name]

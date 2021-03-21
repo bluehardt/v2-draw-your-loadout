@@ -63,31 +63,25 @@ function init() {
 			
 		</div>
 		
-		<div class="draw-container">
-			<div class="draw-description py-3 py-sm-2">
-				<div class="col-12 text-center">Select desired characters and rest of the pool you wish to draw from!</div>
-				<div class="options-preset">
-					<button type="button" class="options-btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
-					</button>
+		<div class="draw-container py-2 py-sm-3 mb-2 mb-sm-2">
+			<div class="options-preset">
+				<button type="button" class="options-btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+				</button>
+			</div>
+			<div id="drawBtn" class="output-container p-2 text-center" style="">
+				<div id="output" class="d-inline text-center font-weight-bold">
+					<span class="output-placeholder font-weight-normal">
+						<em>Click me!</em>
+					</span>
 				</div>
-			</div>
-			<div class="row" style="border: 2px dotted gray;">
-				<div id="output" class="col-12 d-inline text-center align-middle font-weight-bold p-2">&nbsp;</div>
-			</div>
-			<div class="mt-3">
-				<p id="drawBtn" class="col-12 text-center">
-					<button class="btn btn-danger">
-						<strong>DRAW</strong>
-					</button>
-				</p>
 			</div>
 		</div>
 		
 		<div class="row">
-			<div class="col-chars col-sm-3"></div>
-			<div class="col-cls col-sm-3"></div>
-			<div class="col-wpnm col-sm-3"></div>
-			<div class="col-wpnr col-sm-3"></div>
+			<div class="col-chars col-sm-6 col-md-3"></div>
+			<div class="col-cls col-sm-6 col-md-3"></div>
+			<div class="col-wpnm col-sm-6 col-md-3"></div>
+			<div class="col-wpnr col-sm-6 col-md-3"></div>
 		</div>
 	</div>
 	<footer class="fixed-bottom">
@@ -105,7 +99,7 @@ function init() {
 		<div class="modal-dialog modal-dialog-centered" role="document">
 		  	<div class="modal-content">
 				<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalCenterTitle">Options</h5>
+				<h5 class="modal-title" id="exampleModalCenterTitle">Settings</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -146,7 +140,7 @@ function init() {
 							id="alert-preset-clear"
 							class="alert alert-danger collapse" role="alert"
 						>
-							Preset cleared - all checkoxes will be set by default!
+							Preset cleared - all checkoxes will be set by default on the next visit!
 						</div>
 					</div>
 				</div>
