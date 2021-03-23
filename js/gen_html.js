@@ -29,3 +29,7 @@ function createSection(section_name, section_type, json, resource, css) {
 
 	return html;
 }
+
+function createListImageElement(item) {
+	return '<li id="' + item + '"><img src=\"roulette/' + item + '.png"/></li>';
+}

@@ -3,6 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/slotmachine.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
@@ -12,6 +13,10 @@ crossorigin="anonymous"></script>
 <script type='text/javascript' src='js/res_EN.js'></script>
 <script type='text/javascript' src='js/gen_html.js'></script>
 <script type='text/javascript' src='js/check.js'></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="js/slotmachine/slotmachine.js"></script>
+
 <script type='text/javascript'>
 $(document).ready(function() {
 	toggleAll();
@@ -22,17 +27,12 @@ $(document).ready(function() {
 	toggleHeroRelated(ch_str.SIENNA);
 	toggleHeroRelated(ch_str.KERI);
 	
+	toggleOptions('enable-roulette');
+
 	toggleDLC(options_str.DLC_BTU, dlc_btu_wpn);
 	toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
 	toggleDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
 	toggleDLC(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
-<<<<<<< Updated upstream
-	
-	$('#drawBtn').click(function() {
-		document.getElementById('output').innerHTML = drawLoadout();
-	});
-=======
->>>>>>> Stashed changes
 });
 
 //TODO: keep and eye on it...
@@ -48,19 +48,13 @@ function init() {
 	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CLASSES', 'cls', cls_str, res_cls, 'classes');
 	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection('MELEE', 'wpnm', wpnm_str, res_wpnm, 'melee');
 	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_wpnr, 'ranged');
-<<<<<<< Updated upstream
-	
-	//load preset if saved, otherwise toggle all
-	loadPreset();
-=======
 
 	//load preset if saved, otherwise toggle all
 	loadPreset();
 
 	// options
 	loadOptions('enable-roulette');
->>>>>>> Stashed changes
-	
+
 	//read from local storage
 	loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
 	loadDLCStore(options_str.DLC_WOM, dlc_wom_wpn);
@@ -70,25 +64,20 @@ function init() {
 </script>
 </head>
 <body onload="init()" class="pb-5">
-	<div class="container">
-		<div class="options-row">
-			
-		</div>
-		
+	<div class="container">	
 		<div class="draw-container py-2 py-sm-3 mb-2 mb-sm-2">
 			<div class="options-preset">
-				<button type="button" class="options-btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
-				</button>
+				<button type="button" class="options-btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter"></button>
 			</div>
-			<div id="drawBtn" class="output-container p-2 text-center" style="">
-				<div id="output" class="d-inline text-center font-weight-bold">
+			<div id="drawBtn" class="output-container p-2 text-center" onclick="drawLoadout()">
+				<div id="output-text" class="d-inline text-center font-weight-bold">
 					<span class="output-placeholder font-weight-normal">
 						<em>Click me!</em>
 					</span>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-chars col-sm-6 col-md-3"></div>
 			<div class="col-cls col-sm-6 col-md-3"></div>
@@ -96,6 +85,7 @@ function init() {
 			<div class="col-wpnr col-sm-6 col-md-3"></div>
 		</div>
 	</div>
+
 	<footer class="fixed-bottom">
 		<div class="container">
 			<div class="row p-1 small">
@@ -111,13 +101,33 @@ function init() {
 		<div class="modal-dialog modal-dialog-centered" role="document">
 		  	<div class="modal-content">
 				<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalCenterTitle">Settings</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+					<h5 class="modal-title" id="exampleModalCenterTitle">Settings</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
 				<div class="modal-body">
 					<div class="options-dlc"></div>
+					<hr>
+					<div class="options-roulette">
+						<div class="form-check">
+							<input 
+								type="checkbox"
+								id="options-enable-roulette"
+								name="options-enable-roulette"
+								class="form-check-input"
+							>
+							<label 
+								id="label-enable-roulette"
+								for="options-enable-roulette"
+								class="form-check-label"
+							>
+								Enable roulette
+							</label>
+						</div>
+						<small>Slot Machine source <a href="https://github.com/momokang/slotmachine">momokang/slotmachine</a></small>
+					</div>
+					
 					<hr>
 					<div class="modal-options-preset mt-3">
 						<p>
@@ -155,9 +165,61 @@ function init() {
 							Preset cleared - all checkoxes will be set by default on the next visit!
 						</div>
 					</div>
+
+					<div class="text-center">
+						<small><em>changes save automatically</em></small>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="rouletteModal" tabindex="-1" role="dialog" aria-labelledby="rouletteModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  	<div class="modal-content">
+				<div class="modal-body">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<div class="slotwrapper" id="example8">
+								<ul class="slots-col-1"></ul>
+								<ul class="slots-col-2"></ul>
+								<ul class="slots-col-3"></ul>
+							</div>
+							<div class="results-text"></div>
+							<div class="mt-3 text-center">
+								<button type="button" class="btn btn-danger btn-lg" id="btn-example8">Spin!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$('#btn-example8').click(function() {
+			drawLoadout();
+			
+			var spinBtnRef = $(this)[0];
+			spinBtnRef.disabled = true;
+
+			$('#example8 ul').playSpin({
+				time: 1000,
+				endNum: [
+					getResultIndex('.slots-col-1', results[0]),
+					getResultIndex('.slots-col-2', results[1]),
+					getResultIndex('.slots-col-3', results[2])
+				],
+				stopSeq: 'leftToRight',
+				onEnd: function() {
+				},
+				onFinish: function() {
+					spinBtnRef.disabled = false;
+					displayResultsText('.results-text');
+					$('.results-text').addClass('opacity-1');
+				}
+			});
+		});
+	</script>
 </body>
 </html>

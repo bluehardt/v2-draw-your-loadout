@@ -41,6 +41,10 @@ html {
 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
 }
 
+.opacity-1 {
+	opacity: 1 !important;
+}
+
 .draw-container {
 	position: sticky;
 	top: 0;
@@ -77,6 +81,20 @@ html {
 
 .output-placeholder {
 	opacity: .5;
+}
+
+.results-text {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	height: 20px;
+	font-size: .8rem;
+	opacity: 0;
+	transition: .5s;
+}
+
+.results-text > * {
+	text-align: center;
+	
 }
 
 @media (max-width: 768px) {
