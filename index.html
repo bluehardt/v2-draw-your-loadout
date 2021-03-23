@@ -26,10 +26,13 @@ $(document).ready(function() {
 	toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
 	toggleDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
 	toggleDLC(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
+<<<<<<< Updated upstream
 	
 	$('#drawBtn').click(function() {
 		document.getElementById('output').innerHTML = drawLoadout();
 	});
+=======
+>>>>>>> Stashed changes
 });
 
 //TODO: keep and eye on it...
@@ -45,9 +48,18 @@ function init() {
 	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CLASSES', 'cls', cls_str, res_cls, 'classes');
 	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection('MELEE', 'wpnm', wpnm_str, res_wpnm, 'melee');
 	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_wpnr, 'ranged');
+<<<<<<< Updated upstream
 	
 	//load preset if saved, otherwise toggle all
 	loadPreset();
+=======
+
+	//load preset if saved, otherwise toggle all
+	loadPreset();
+
+	// options
+	loadOptions('enable-roulette');
+>>>>>>> Stashed changes
 	
 	//read from local storage
 	loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
