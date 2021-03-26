@@ -31,5 +31,5 @@ function createSection(section_name, section_type, json, resource, css) {
 }
 
 function createListImageElement(item) {
-	return '<li id="' + item + '"><img src=\"roulette/' + item + '.png"/></li>';
+	return '<li id="' + item + '"><img src=\"assets/roulette/' + item + '.png"/></li>';
 }

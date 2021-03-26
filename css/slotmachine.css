@@ -19,10 +19,6 @@
     text-align: center;
 }
 
-.slotwrapper ul li img {
-    vertical-align: baseline;
-}
-
 .slotwrapper ul.slots-col-1 li img {
     height: 100%;
 }
