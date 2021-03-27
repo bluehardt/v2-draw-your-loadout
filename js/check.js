@@ -5,10 +5,6 @@ async function getLastUpdateDate() {
 	
 	const resp = await $.get(url);
 	
-	var options = {
-		hours: 'numeric',
-		minutes: '2-digit',
-	}
 	var last_update = new Date(resp.commit.commit.author.date);
 	last_update = last_update.toLocaleString('en-GB');
 	
@@ -52,6 +48,17 @@ function toggleAll() {
 		setAll(cat_str, state);
 	});
 };
+
+function hideAll() {
+	var names = Object.values(ch_str);
+
+	// pushing each checkbox's id which is currently checked
+	names.forEach(name => {
+		$('[class*=group-' + name + '-]').each(function() {
+			$(this).hide();
+		});
+	});
+}
 
 function setAll(json, state) {
 	var names = Object.values(ch_str);
@@ -114,6 +121,84 @@ function toggleDLC(name, weapons, career) {
 	});
 };
 
+function toggleOptions(name) {
+	$('#options-' + name).click(function(event) {
+		localStorage.setItem('toggle-' + name, $(this).is(':checked'));
+	});
+};
+
+function loadOptions(name) {
+	var opt = $('#options-' + name)[0];
+	opt.checked = localStorage.getItem('toggle-' + name) === null ? true : JSON.parse(localStorage.getItem('toggle-' + name));
+};
+
+/*
+	Save picked checkboxes into local storage
+*/ 
+function savePreset() {
+	var names = Object.values(ch_str);
+	var presetData = [];
+
+	// pushing each checkbox's id which is currently checked
+	names.forEach(name => {
+		$('[class*=' + name + '] input').each(function() {
+			if ($(this)[0].checked) {
+				presetData.push($(this)[0].id);
+			}
+		});
+	});
+
+	var stringifiedPreset = JSON.stringify(presetData);	
+
+	localStorage.setItem('preset', stringifiedPreset);
+
+	$('.alert').hide();
+	$('#alert-preset-save').show();
+};
+
+/*
+	Load preset from local storage
+*/
+function loadPreset() {
+	var preset = localStorage.getItem('preset');
+
+	if (preset) {
+		preset = JSON.parse(preset);
+
+
+		var names = preset.filter(el => el.includes('chars-'));
+		names.forEach((name, index) => {
+			names[index] = name.replace('chars-', '');
+		});
+
+		hideAll();
+
+		// checking boxes loaded from local storage
+		names.forEach(name => {
+			if (Object.values(ch_str).find(el => name.includes(el))) {
+				$('[class*=group-' + name + '-]').show();
+			}
+
+			preset.forEach(item => {
+				$('[id*=' + item + ']').prop('checked', true);
+			})
+		});
+	} else {
+		$('#select-all').prop('checked', true);
+		setAll(cat_str, true);
+	}
+};
+
+/*
+	Delete preset from local storage
+*/
+function deletePreset() {
+	localStorage.removeItem('preset');
+
+	$('.alert').hide();
+	$('#alert-preset-clear').show();
+};
+
 function disableCareer(name, cls) {
 	$('#options-' + name).click(function(event) {
 		var input = $('[id*=' + cls + ']');
@@ -122,8 +207,16 @@ function disableCareer(name, cls) {
 	});
 };
 
+results = [null, null, null];
+resultsTranslation = [null, null, null];
+resultError = '';
+
 //draw loadout
 function drawLoadout() {
+	$('.results-text').removeClass('opacity-1');
+
+	resultError = null;
+
 	chars_arr = [];
 	cls_arr = [];
 	wpnm_arr = [];
@@ -138,7 +231,7 @@ function drawLoadout() {
 	//draw hero
 	rand_ch = chars_arr[rand(chars_arr.length)];
 	
-	if(rand_ch === undefined) return 'Pick at least 1 hero!';
+	if(rand_ch === undefined) return displayResultsText('#output-text', 'Pick at least 1 hero!');
 	
 	rand_ch_name = rand_ch.substring(rand_ch.indexOf('-') + 1);
 	
@@ -151,12 +244,12 @@ function drawLoadout() {
 	//draw class
 	rand_cls = cls_arr[rand(cls_arr.length)];
 	
-	if(rand_cls === undefined) return 'Pick at least 1 class per chosen hero!';
+	if(rand_cls === undefined) return displayResultsText('#output-text', 'Pick at least 1 career per chosen hero!');
 	
 	rand_cls_name = rand_cls.substring(rand_cls.indexOf('-') + 1);
 	rand_cls_num = rand_cls.substring(rand_cls.lastIndexOf('-') + 1);
 	
-	//get array of checked melee weapons for randomed class which can be used by it
+	//get array of checked melee weapons for randomed career which can be used by it
 	$('input[id*=' + cat_str.WPN_MELEE + '-' + rand_ch_name + ']:checked').each(function() {
 		var id = $(this).attr('id');
 		if(id.substring(id.lastIndexOf('-') + 1).includes(rand_cls_num)) {
@@ -168,7 +261,7 @@ function drawLoadout() {
 	//draw weapon
 	rand_wpnm = wpnm_arr[rand(wpnm_arr.length)];
 	
-	if(rand_wpnm === undefined) return 'Pick at least 1 melee weapon per chosen hero! (or a class tied weapon)';
+	if(rand_wpnm === undefined) return displayResultsText('#output-text', 'Pick at least 1 melee weapon per chosen hero! (or a class tied weapon)');
 	
 	rand_wpnm_name = rand_wpnm.substring(rand_wpnm.indexOf('-') + 1);
 	
@@ -189,33 +282,116 @@ function drawLoadout() {
 	//draw weapon
 	rand_wpnr = wpnr_arr[rand(wpnr_arr.length)];
 	
-	if(rand_wpnr === undefined) return 'Pick at least 1 ranged weapon per chosen hero! (or a class tied weapon)';
+	if(rand_wpnr === undefined) return displayResultsText('#output-text', 'Pick at least 1 ranged weapon per chosen hero! (or a class tied weapon)');
 	
 	rand_wpnr_name = rand_wpnr.substring(rand_wpnr.indexOf('-') + 1);
 	
 	// results and displaying
-	var results = [
-		res_chars[rand_ch_name],
+	results = [
+		rand_cls_name,
+		rand_wpnm_name,
+		rand_wpnr_name
+	]
+
+	resultsTranslation = [
 		res_cls[rand_cls_name],
 		res_wpnm[rand_wpnm_name],
 		res_wpnr[rand_wpnr_name]
 	]
 
+	var rouletteEnabled = $('#options-enable-roulette')[0].checked;
+
+	if (rouletteEnabled) {
+		displayResultsText('#output-text', `
+			<span class="output-placeholder font-weight-normal">
+				<em>Click me!</em>
+			</span>
+		`);
+
+		drawRoulette();
+		$('#rouletteModal').modal('show');
+	} else {
+		displayResultsText('#output-text');
+	}
+}
+
+function displayResultsText(target, message) {
 	var displayResults = '';
 
-	if (window.innerWidth > 576) {
-		results.forEach((val, key, arr) => {
-			displayResults += '<span>' + val + '</span>';
-			
-			if (key !== arr.length - 1) {
-				displayResults += ' - ';
-			}
-		});
+	if (!message) {
+		
+		if (window.innerWidth > 576 && target !== '.results-text') {
+			resultsTranslation.forEach((val, key, arr) => {
+				displayResults += ' <span>' + val + '</span> ';
+				
+				if (key !== arr.length - 1) {
+					displayResults += ' - ';
+				}
+			});
+		} else {
+			resultsTranslation.forEach(val => {
+				displayResults += '<div>' + val + '</div>';
+			});
+		}
+	
 	} else {
-		results.forEach(val => {
-			displayResults += '<div>' + val + '</div>';
-		});
+		displayResults = message;
+	}
+	
+	$(target)[0].innerHTML = displayResults;
+}
+
+
+/*
+	ROULETTE RELATED
+*/
+slotsCareerElements = null;
+slotsMeleeElements = null;
+slotsRangedElements = null;
+
+function drawRoulette() {
+	var slots_careers = [];
+	var slots_melee = [];
+	var slots_ranged = [];
+
+	$('input[id*=' + cat_str.CLASSES + ']:checked').each(function() {
+		slots_careers.push($(this).attr('id').replace('cls-', ''));
+	});
+
+	$('input[id*=' + cat_str.WPN_MELEE + ']:checked').each(function() {
+		slots_melee.push($(this).attr('id').replace('wpnm-', ''));
+	});
+
+	$('input[id*=' + cat_str.WPN_RANGED + ']:checked').each(function() {
+		slots_ranged.push($(this).attr('id').replace('wpnr-', '').replace('wpnm-', ''));
+	});
+
+	// marging melee and ranged weapons in case it's melee-only class
+	if(slots_careers.includes(cls_str.BARDIN_SLR) || slots_careers.includes(cls_str.KRUBER_GK)) {
+		slots_ranged = slots_ranged.concat(slots_melee);
 	}
 
-	return displayResults;
+
+	slotsCareerElements = '';
+	slots_careers.forEach(el => {
+		slotsCareerElements += createListImageElement(el);
+	});
+
+	slotsMeleeElements = '';
+	slots_melee.forEach(el => {
+		slotsMeleeElements += createListImageElement(el);
+	});
+
+	slotsRangedElements = '';
+	slots_ranged.forEach(el => {
+		slotsRangedElements += createListImageElement(el);
+	});
+
+	$('.slots-col-1')[0].innerHTML = slotsCareerElements;
+	$('.slots-col-2')[0].innerHTML = slotsMeleeElements;
+	$('.slots-col-3')[0].innerHTML = slotsRangedElements;
+}
+
+function getResultIndex(elId, result) {
+	return [...$(elId)[0].childNodes].findIndex(item => item.id === result) + 1;
 }
