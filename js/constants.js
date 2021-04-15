@@ -53,6 +53,7 @@ const wpnm_str = {
 	KRUBER_SPR: 'kruber-spr-12',
 	KRUBER_BRETSWRD: 'kruber-bretswrd-1234',
 	KRUBER_BRETSWRDNSHLD: 'kruber-bretswrdnshld-4',
+	KRUBER_SPRNSHLD: 'kruber-sprnshld-123',
 	BARDIN_AXE: 'bardin-axe1h-1234',
 	BARDIN_AXENSHLD: 'bardin-axenshld-124',
 	BARDIN_AXEDUAL: 'bardin-axedual-3',
@@ -85,6 +86,7 @@ const wpnr_str = {
 	SALTZ_XBOW: 'saltz-xbow-123',
 	SALTZ_RPTR: 'saltz-rptr-123',
 	SALTZ_VXBOW: 'saltz-vxbow-123',
+	SALTZ_GRFNFT: 'saltz-grfnft-123',
 	KRUBER_BLNDR: 'kruber-blndr-123',
 	KRUBER_HAND: 'kruber-hgun-123',
 	KRUBER_LBOW: 'kruber-lbow-2',
@@ -96,15 +98,18 @@ const wpnr_str = {
 	BARDIN_HAND: 'bardin-hgun-124',
 	BARDIN_TAXES: 'bardin-taxes-13',
 	BARDIN_MWPSTL: 'bardin-mwpstl-124',
+	BARDIN_TRLHMMR: 'bardin-trlhmmr-24',
 	SIENNA_BEAM: 'sienna-beam-123',
 	SIENNA_BOLT: 'sienna-bolt-123',
 	SIENNA_CONF: 'sienna-conf-123',
 	SIENNA_FIREBALL: 'sienna-fireball-123',
 	SIENNA_FLAME: 'sienna-flame-123',
+	SIENNA_CRSC: 'sienna-crsc-123',
 	KERI_HAG: 'keri-hag-123',
 	KERI_LBOW: 'keri-lbow-123',
 	KERI_SBOW: 'keri-sbow-123',
 	KERI_VXBOW: 'keri-vxbow-3',
+	KERI_MFIRE: 'keri-mfire-123',
 };
 
 const options_str = {
@@ -112,6 +117,7 @@ const options_str = {
 	DLC_WOM: 'dlc-wom',
 	DLC_GK: 'dlc-gk',
 	DLC_OE: 'dlc-oe',
+	DLC_FR: 'dlc-fr',
 };
 
 const dlc_btu_wpn = [
@@ -139,6 +145,14 @@ const dlc_oe_wpn = [
 	wpnm_str.BARDIN_COGHMMR,
 	wpnr_str.BARDIN_MWPSTL,
 ];
+
+const dlc_fr_wpn = [
+	wpnm_str.KRUBER_SPRNSHLD,
+	wpnr_str.SALTZ_GRFNFT,
+	wpnr_str.BARDIN_TRLHMMR,
+	wpnr_str.SIENNA_CRSC,
+	wpnr_str.KERI_MFIRE,
+]
 
 const dlc_gk_cls = cls_str.KRUBER_GK;
 const dlc_oe_cls = cls_str.BARDIN_OE;

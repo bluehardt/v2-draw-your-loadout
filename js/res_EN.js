@@ -49,6 +49,7 @@ res_wpnm = {
 	[wpnm_str.KRUBER_SPR]: 'Tuskgor Spear',
 	[wpnm_str.KRUBER_BRETSWRD]: 'Bretonnian Longsword',
 	[wpnm_str.KRUBER_BRETSWRDNSHLD]: 'Bretonnian Sword & Shield',
+	[wpnm_str.KRUBER_SPRNSHLD]: 'Spear & Shield',
 	[wpnm_str.BARDIN_AXE]: 'Axe',
 	[wpnm_str.BARDIN_AXENSHLD]: 'Axe & Shield',
 	[wpnm_str.BARDIN_AXEDUAL]: 'Dual Axes',
@@ -81,6 +82,7 @@ res_wpnr = {
 	[wpnr_str.SALTZ_XBOW]: 'Crossbow',
 	[wpnr_str.SALTZ_RPTR]: 'Repeater Pistol',
 	[wpnr_str.SALTZ_VXBOW]: 'Volley Crossbow',
+	[wpnr_str.SALTZ_GRFNFT]: 'Griffon-Foot',
 	[wpnr_str.KRUBER_BLNDR]: 'Blunderbuss',
 	[wpnr_str.KRUBER_HAND]: 'Handgun',
 	[wpnr_str.KRUBER_LBOW]: 'Longbow',
@@ -92,15 +94,18 @@ res_wpnr = {
 	[wpnr_str.BARDIN_HAND]: 'Handgun',
 	[wpnr_str.BARDIN_TAXES]: 'Throwing Axes',
 	[wpnr_str.BARDIN_MWPSTL]: 'Masterwork Pistol',
+	[wpnr_str.BARDIN_TRLHMMR]: 'Trollhammer',
 	[wpnr_str.SIENNA_BEAM]: 'Beam Staff',
 	[wpnr_str.SIENNA_BOLT]: 'Bolt Staff',
 	[wpnr_str.SIENNA_CONF]: 'Conflagration Staff',
 	[wpnr_str.SIENNA_FIREBALL]: 'Fireball Staff',
 	[wpnr_str.SIENNA_FLAME]: 'Flamestorm Staff',
+	[wpnr_str.SIENNA_CRSC]: 'Coruscation Staff',
 	[wpnr_str.KERI_HAG]: 'Hagbane Shortbow',
 	[wpnr_str.KERI_LBOW]: 'Longbow',
 	[wpnr_str.KERI_SBOW]: 'Swift Bow',
 	[wpnr_str.KERI_VXBOW]: 'Volley Crossbow',
+	[wpnr_str.KERI_VXBOW]: 'Moonfire Bow',
 };
 
 res_options = {
@@ -108,6 +113,7 @@ res_options = {
 	[options_str.DLC_WOM]: 'Disable <b>Winds of Magic</b> weapons',
 	[options_str.DLC_GK]: 'Disable <b>Grail Knight</b> DLC',
 	[options_str.DLC_OE]: 'Disable <b>Outcast Engineer</b> DLC',
+	[options_str.DLC_FR]: 'Disable <b>Forgotten Relics</b> DLC',
 };
 
 res_other = {
