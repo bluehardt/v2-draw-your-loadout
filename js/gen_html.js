@@ -33,3 +33,26 @@ function createSection(section_name, section_type, json, resource, css) {
 function createListImageElement(item) {
 	return '<li id="' + item + '"><img src=\"assets/roulette/' + item + '.png"/></li>';
 }
+
+//
+
+function createSection2(section_name, section_type, json, resource, css) {
+	var html = '<div class="' + css + '">';
+
+	html += section_name ?  '<div class="section-name font-weight-bold" data-i18n="' + section_name + '"></div>' : '';
+
+	var arr = Object.values(json);
+	var res = Object.values(resource);
+	
+	if(section_type == cat_str.CHARACTERS) {
+		html += createCheckbox('select', 'all', 'ALL')
+	}
+	
+	for(var i=0; i < arr.length; i++) {
+		html += createCheckbox(section_type, arr[i], res[i]);
+	}
+
+	html += '</div>';
+
+	return html;
+}

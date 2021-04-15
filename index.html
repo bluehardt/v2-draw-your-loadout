@@ -14,9 +14,19 @@ crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script type='text/javascript' src='js/constants.js'></script>
-<script type='text/javascript' src='js/res_EN.js'></script>
 <script type='text/javascript' src='js/gen_html.js'></script>
 <script type='text/javascript' src='js/check.js'></script>
+<script type='text/javascript' src='assets/i18n/en.js'></script>
+
+<!-- jquery.i18n -->
+<script src="js/jquery.i18n/jquery.i18n.js"></script>
+<script src="js/jquery.i18n/jquery.i18n.messagestore.js"></script>
+<script src="js/jquery.i18n/jquery.i18n.fallbacks.js"></script>
+<script src="js/jquery.i18n/jquery.i18n.parser.js"></script>
+<script src="js/jquery.i18n/jquery.i18n.emitter.js"></script>
+<script src="js/jquery.i18n/jquery.i18n.language.js"></script>
+<script type='text/javascript' src='assets/i18n/en.json'></script>
+<script type='text/javascript' src='assets/i18n/pl.json'></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src="js/slotmachine/slotmachine.js"></script>
@@ -43,17 +53,25 @@ $(document).ready(function() {
 async function ajax() {
 	$('#lastUpdate')[0].innerHTML = await getLastUpdateDate();
 
-	console.log(await pl("hello"))
+	// console.log(await )
 };
 
 function init() {	
 	ajax();
 
-	document.getElementsByClassName('options-dlc')[0].innerHTML = createSection('', 'options', options_str, res_options, 'options');
-	document.getElementsByClassName('col-chars')[0].innerHTML = createSection('CHARACTERS', 'chars', ch_str, res_chars, 'chars');
-	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CAREERS', 'cls', cls_str, res_cls, 'classes');
-	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection('MELEE', 'wpnm', wpnm_str, res_wpnm, 'melee');
-	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_wpnr, 'ranged');
+	$.i18n().load( {
+        'en': 'assets/i18n/en.json',
+        'pl': 'assets/i18n/pl.json'
+	});
+
+	res_lang = res_en;
+
+	document.getElementsByClassName('options-dlc')[0].innerHTML = createSection('', 'options', options_str, res_lang.settings.dlc, 'options');
+	// document.getElementsByClassName('col-chars')[0].innerHTML = createSection('CHARACTERS', 'chars', ch_str, res_lang.characters, 'chars');
+	document.getElementsByClassName('col-chars')[0].innerHTML = createSection2('main.characters_label', 'chars', ch_str, res_lang.characters, 'chars');
+	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CAREERS', 'cls', cls_str, res_lang.careers, 'classes');
+	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection('MELEE', 'wpnm', wpnm_str, res_lang.weapons_melee, 'melee');
+	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_lang.weapons_ranged, 'ranged');
 
 	//load preset if saved, otherwise toggle all
 	loadPreset();
@@ -82,6 +100,9 @@ function init() {
 					</span>
 				</div>
 			</div>
+
+			<button onclick="change_language('pl')">PL</button>
+			<button onclick="change_language('en')">EN</button>
 
 			<hr>
 		</div>
