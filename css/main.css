@@ -130,6 +130,7 @@ header {
 
 .output-placeholder {
     opacity: .5;
+    font-style: italic;
 }
 
 .results-text {
@@ -145,6 +146,10 @@ header {
     text-align: center;
     align-self: center;
     justify-self: center;
+}
+
+.section-name {
+    text-transform: uppercase;
 }
 
 @media (max-width: 768px) {

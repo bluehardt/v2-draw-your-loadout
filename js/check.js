@@ -304,7 +304,7 @@ function drawLoadout() {
 	if (rouletteEnabled) {
 		displayResultsText('#output-text', `
 			<span class="output-placeholder font-weight-normal">
-				<em>Click me!</em>
+				<span name=i18n-main-draw_btn>` + res_lang.main.draw_btn + `</span>
 			</span>
 		`);
 

@@ -1,16 +1,14 @@
 res_en = {
     main: {
-        characters_label: 'CHARACTERS',
-        careers_label: 'CAREERS',
-        melee_label: 'MELEE',
-        ranged_label: 'RANGED',
+        characters_label: 'characters',
+        careers_label: 'careers',
+        melee_label: 'melee',
+        ranged_label: 'ranged',
         draw_btn: 'Click me!',
         spin_btn: 'Spin!',
         created_by: 'Created by',
-<<<<<<< HEAD
-=======
-        disclaimer: 'If checkboxes do not behave properly please reload the page!'
->>>>>>> afab42a08a9655af11c2bd87532646af266f35e0
+        disclaimer: 'If checkboxes do not behave properly please reload the page!',
+        all: 'all'
     },
     characters: {
         [ch_str.SALTZ]: 'Victor Saltzpyre',
@@ -122,7 +120,7 @@ res_en = {
         },
         roulette: {
             enable: 'Enable roulette',
-            description: 'Slot Machine source'
+            description: 'Source'
         },
         preset: {
             save_btn: 'Save preset',
@@ -132,7 +130,11 @@ res_en = {
             message_cleared: 'Preset cleared - all checkoxes will be set by default on the next visit!'
         },
         footer: {
-            description: 'changes save automatically',
+            autosave: 'changes save automatically',
+        },
+        language: {
+            en: '🇬🇧 English',
+            pl: '🇵🇱 Polish'
         }
     }
 }
