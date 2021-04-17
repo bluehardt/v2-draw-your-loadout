@@ -7,6 +7,10 @@ res_en = {
         draw_btn: 'Click me!',
         spin_btn: 'Spin!',
         created_by: 'Created by',
+<<<<<<< HEAD
+=======
+        disclaimer: 'If checkboxes do not behave properly please reload the page!'
+>>>>>>> afab42a08a9655af11c2bd87532646af266f35e0
     },
     characters: {
         [ch_str.SALTZ]: 'Victor Saltzpyre',
