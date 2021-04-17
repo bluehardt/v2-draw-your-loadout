@@ -1,25 +1,26 @@
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
 
-<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+<link rel='icon' href='favicon.ico' type='image/x-icon'/>
+<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
 
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/slotmachine.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+<link rel='stylesheet' type='text/css' href='css/slotmachine.css'>
+<link rel='stylesheet' type='text/css' href='css/main.css'>
+<script src='https://code.jquery.com/jquery-3.4.1.min.js' integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo='
+crossorigin='anonymous'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
 <script type='text/javascript' src='js/constants.js'></script>
-<script type='text/javascript' src='js/res_EN.js'></script>
 <script type='text/javascript' src='js/gen_html.js'></script>
 <script type='text/javascript' src='js/check.js'></script>
+<script type='text/javascript' src='assets/i18n/en.js'></script>
+<script type='text/javascript' src='js/lang.js'></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-<script src="js/slotmachine/slotmachine.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
+<script src='js/slotmachine/slotmachine.js'></script>
 
 <script type='text/javascript'>
 $(document).ready(function() {
@@ -47,11 +48,11 @@ async function ajax() {
 function init() {	
 	ajax();
 
-	document.getElementsByClassName('options-dlc')[0].innerHTML = createSection('', 'options', options_str, res_options, 'options');
-	document.getElementsByClassName('col-chars')[0].innerHTML = createSection('CHARACTERS', 'chars', ch_str, res_chars, 'chars');
-	document.getElementsByClassName('col-cls')[0].innerHTML = createSection('CAREERS', 'cls', cls_str, res_cls, 'classes');
-	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection('MELEE', 'wpnm', wpnm_str, res_wpnm, 'melee');
-	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection('RANGED', 'wpnr', wpnr_str, res_wpnr, 'ranged');
+	document.getElementsByClassName('options-dlc')[0].innerHTML = createSection('', 'options', options_str, res_lang.settings.dlc, 'options');
+	document.getElementsByClassName('col-chars')[0].innerHTML = createSection(res_lang.main.characters_label, 'chars', ch_str, res_lang.characters, 'chars');
+	document.getElementsByClassName('col-cls')[0].innerHTML = createSection(res_lang.main.careers_label, 'cls', cls_str, res_lang.careers, 'classes');
+	document.getElementsByClassName('col-wpnm')[0].innerHTML = createSection(res_lang.main.melee_label, 'wpnm', wpnm_str, res_lang.weapons_melee, 'melee');
+	document.getElementsByClassName('col-wpnr')[0].innerHTML = createSection(res_lang.main.ranged_label, 'wpnr', wpnr_str, res_lang.weapons_ranged, 'ranged');
 
 	//load preset if saved, otherwise toggle all
 	loadPreset();
@@ -67,133 +68,134 @@ function init() {
 }
 </script>
 </head>
-<body onload="init()" class="pb-5">
-	<div class="container">	
-		<div class="draw-container pt-2 pt-sm-3 mb-2 mb-sm-2">
-			<div class="options-preset">
-				<button type="button" class="options-btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter"></button>
+<body onload='init()' class='pb-5'>
+	<div class='container'>
+		<div class='draw-container pt-2 pt-sm-3 mb-2 mb-sm-2'>
+			<div class='options-preset'>
+				<button type='button' class='options-btn btn btn-secondary' data-toggle='modal' data-target='#exampleModalCenter'></button>
 			</div>
-			<div id="drawBtn" class="output-container p-2 text-center" onclick="drawLoadout()">
-				<div id="output-text" class="d-inline text-center font-weight-bold">
-					<span class="output-placeholder font-weight-normal">
-						<em>Click me!</em>
+			<div id='drawBtn' class='output-container p-2 text-center' onclick='drawLoadout()'>
+				<div id='output-text' class='d-inline text-center font-weight-bold'>
+					<span class='output-placeholder font-weight-normal'>
+						<em><script>document.write(res_lang.main.draw_btn)</script></em>
 					</span>
 				</div>
 			</div>
-
 			<hr>
 		</div>
 
-		<div class="row">
-			<div class="col-chars col-sm-6 col-md-3"></div>
-			<div class="col-cls col-sm-6 col-md-3"></div>
-			<div class="col-wpnm col-sm-6 col-md-3"></div>
-			<div class="col-wpnr col-sm-6 col-md-3"></div>
+		<div class='row'>
+			<div class='col-chars col-sm-6 col-md-3'></div>
+			<div class='col-cls col-sm-6 col-md-3'></div>
+			<div class='col-wpnm col-sm-6 col-md-3'></div>
+			<div class='col-wpnr col-sm-6 col-md-3'></div>
 		</div>
 	</div>
 
-	<footer class="fixed-bottom">
-		<div class="container">
-			<div class="row p-1 small">
-				<div class="col-12">
-					<span id="lastUpdate"></span>
-					<span class="float-right">Created by <a href="https://steamcommunity.com/id/bluehardt">Blue</a></span>
+	<footer class='fixed-bottom'>
+		<div class='container'>
+			<div class='row p-1 small'>
+				<div class='col-12'>
+					<span id='lastUpdate'></span>
+					<span class='float-right'><script>document.write(res_lang.main.created_by)</script> <a href='https://steamcommunity.com/id/bluehardt'>Blue</a></span>
 				</div>
 			</div>
 		</div>
 	</footer>
 
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		  	<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalCenterTitle">Settings</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
+	<div class='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+		<div class='modal-dialog modal-dialog-centered' role='document'>
+		  	<div class='modal-content'>
+				<div class='modal-header'>
+					<h5 class='modal-title' id='exampleModalCenterTitle'><script>document.write(res_lang.settings.header.title)</script></h5>
+					<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+						<span aria-hidden='true'>&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
-					<div class="options-dlc"></div>
+				<div class='modal-body'>
+					<div class='options-dlc'></div>
 					<hr>
-					<div class="options-roulette">
-						<div class="form-check">
+					<div class='options-roulette'>
+						<div class='form-check'>
 							<input 
-								type="checkbox"
-								id="options-enable-roulette"
-								name="options-enable-roulette"
-								class="form-check-input"
+								type='checkbox'
+								id='options-enable-roulette'
+								name='options-enable-roulette'
+								class='form-check-input'
 							>
 							<label 
-								id="label-enable-roulette"
-								for="options-enable-roulette"
-								class="form-check-label"
+								id='label-enable-roulette'
+								for='options-enable-roulette'
+								class='form-check-label'
 							>
-								Enable roulette
+							<script>document.write(res_lang.settings.roulette.enable)</script>
 							</label>
 						</div>
-						<small>Slot Machine source <a href="https://github.com/momokang/slotmachine">momokang/slotmachine</a></small>
+						<small><script>document.write(res_lang.settings.roulette.description)</script> <a href='https://github.com/momokang/slotmachine'>momokang/slotmachine</a></small>
 					</div>
 					
 					<hr>
-					<div class="modal-options-preset mt-3">
+					<div class='modal-options-preset mt-3'>
 						<p>
-							<small>You can save currently checked boxes to load them next time you open the page.</small>
+							<small><script>document.write(res_lang.settings.preset.description)</script></small>
 						</p>
 						<button
-							id="save-preset"
-							class="save-preset-btn btn btn-secondary btn-sm mr-3"
-							onclick="savePreset()"
+							id='save-preset'
+							class='save-preset-btn btn btn-secondary btn-sm mr-3'
+							onclick='savePreset()'
 						>
-							Save preset
+							<script>document.write(res_lang.settings.preset.save_btn)</script>
 						</button>
 		
 						<button
-							id="delete-preset"
-							class="delete-preset-btn btn btn-secondary btn-sm"
-							onclick="deletePreset()"
+							id='delete-preset'
+							class='delete-preset-btn btn btn-secondary btn-sm'
+							onclick='deletePreset()'
 						>
-							Clear preset
+							<script>document.write(res_lang.settings.preset.clear_btn)</script>
 						</button>
 						
 					</div>
 
-					<div class="alert-container mt-3">
+					<div class='alert-container mt-3'>
 						<div
-							id="alert-preset-save" 
-							class="alert alert-success collapse" role="alert"
+							id='alert-preset-save' 
+							class='alert alert-success collapse' role='alert'
 						>
-							Preset saved - checkboxes state will be remembered (until you clear it one way or another)
+							<script>document.write(res_lang.settings.preset.message_saved)</script>
 						</div>
 						<div
-							id="alert-preset-clear"
-							class="alert alert-danger collapse" role="alert"
+							id='alert-preset-clear'
+							class='alert alert-danger collapse' role='alert'
 						>
-							Preset cleared - all checkoxes will be set by default on the next visit!
+							<script>document.write(res_lang.settings.preset.message_cleared)</script>
 						</div>
 					</div>
 
-					<div class="text-center">
-						<small><em>changes save automatically</em></small>
+					<div class='text-center'>
+						<small><em><script>document.write(res_lang.settings.footer.description)</script></em></small>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="modal fade" id="rouletteModal" tabindex="-1" role="dialog" aria-labelledby="rouletteModalTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		  	<div class="modal-content">
-				<div class="modal-body">
-					<div class="panel panel-primary">
-						<div class="panel-body">
-							<div class="slotwrapper" id="example8">
-								<ul class="slots-col-1"></ul>
-								<ul class="slots-col-2"></ul>
-								<ul class="slots-col-3"></ul>
+	<div class='modal fade' id='rouletteModal' tabindex='-1' role='dialog' aria-labelledby='rouletteModalTitle' aria-hidden='true'>
+		<div class='modal-dialog modal-dialog-centered' role='document'>
+		  	<div class='modal-content'>
+				<div class='modal-body'>
+					<div class='panel panel-primary'>
+						<div class='panel-body'>
+							<div class='slotwrapper' id='example8'>
+								<ul class='slots-col-1'></ul>
+								<ul class='slots-col-2'></ul>
+								<ul class='slots-col-3'></ul>
 							</div>
-							<div class="results-text"></div>
-							<div class="mt-3 text-center">
-								<button type="button" class="btn btn-danger btn-lg" id="btn-example8">Spin!</button>
+							<div class='results-text'></div>
+							<div class='mt-3 text-center'>
+								<button type='button' class='btn btn-danger btn-lg' id='btn-example8'>
+									<script>document.write(res_lang.main.spin_btn)</script>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -202,7 +204,7 @@ function init() {
 		</div>
 	</div>
 
-	<script type="text/javascript">
+	<script type='text/javascript'>
 		$('#btn-example8').click(function() {
 			drawLoadout();
 			

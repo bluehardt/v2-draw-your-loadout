@@ -52,6 +52,11 @@ hr {
     background-color: white;
 }
 
+header {
+	height: 25px;
+}
+
+/* tooltip */
 .tip {
     text-decoration: none
 }
