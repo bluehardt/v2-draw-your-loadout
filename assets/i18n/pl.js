@@ -5,7 +5,7 @@ res_pl = {
         melee_label: 'broń wręcz',
         ranged_label: 'broń dystansowa',
         draw_btn: 'Losuj!',
-        spin_btn: 'Zakręć!',
+        spin_btn: 'Losuj!',
         created_by: 'Autor:',
         disclaimer: 'W przypadku niepoprawnego funkcjonowania pól przeładuj stronę!',
         all: 'wszystkie'
@@ -30,7 +30,7 @@ res_pl = {
         [cls_str.BARDIN_SLR]: 'Zabójca',
         [cls_str.BARDIN_OE]: 'Inżynier Wygnaniec',
         [cls_str.SIENNA_BW]: 'Czarodziejka Bitewna',
-        [cls_str.SIENNA_PR]: 'Pieormantka',
+        [cls_str.SIENNA_PR]: 'Piromantka',
         [cls_str.SIENNA_UNC]: 'Wyzwolona',
         [cls_str.KERI_WS]: 'Przepatrywacz',
         [cls_str.KERI_HM]: 'Służka',
@@ -133,6 +133,11 @@ res_pl = {
             autosave: 'zmiany zapisywane automatycznie',
         },
         language: {
+            contribute: {
+                info: 'W przypadku chęci dodania lub poprawy tłumaczenia - zostaw komentarz w poradniku lub złap mnie mailowo, dzięki!',
+                guide: 'Poradnik Steam',
+                email: 'Wyślij e-mail'
+            },
             en: '🇬🇧 Angielski',
             pl: '🇵🇱 Polski'
         }

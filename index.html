@@ -107,7 +107,9 @@ function init() {
 					<span id="lastUpdate"></span>
 					<span class="float-right">
 						<span name="i18n-main-created_by"></span>
-						<a href="https://steamcommunity.com/id/bluehardt">Blue</a></span>
+						<a href="https://steamcommunity.com/id/bluehardt">Blue</a>
+						<span>💰</span>
+					</span>
 				</div>
 			</div>
 		</div>
@@ -154,42 +156,62 @@ function init() {
 							<option name="i18n-settings-language-en" value="en"></option>
 							<option name="i18n-settings-language-pl" value="pl"></option>
 						</select>
+						<div class="language-info" onclick="showContributionInfo()">ℹ️</div>
+					</div>
+					<div
+						id="alert-contribute-info" 
+						class="alert alert-info collapse mt-3"
+						role="alert"
+					>
+						<div name="i18n-settings-language-contribute-info"></div>
+						<div class="contribute-buttons mt-2">
+							<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1876718413">
+								<button
+									class="btn btn-info btn-sm"
+									name="i18n-settings-language-contribute-guide"
+								></button>
+							</a>
+							<a href="mailto:bluehardt.contact@gmail.com?subject=%5BV2-DYL%5D%20Contribution" >
+								<button
+									class="btn btn-info btn-sm mr-3"
+									name="i18n-settings-language-contribute-email"
+								></button>
+							</a>
+						</div>
 					</div>
 					<hr>
 					<div class="modal-options-preset mt-3">
-						<p>
+						<div>
 							<small>
 								<span name="i18n-settings-preset-description"></span>
 							</small>
-						</p>
-						<button
-							class="save-preset-btn btn btn-secondary btn-sm mr-3"
-							onclick="savePreset()"
-						>
-							<span name="i18n-settings-preset-save_btn"></span>
-						</button>
-		
-						<button
-							class="delete-preset-btn btn btn-secondary btn-sm"
-							onclick="deletePreset()"
-						>
-							<span name="i18n-settings-preset-clear_btn"></span>
-						</button>
+						</div>
+						<div class="preset-buttons mt-2">
+							<button
+								class="save-preset-btn btn btn-secondary btn-sm mr-3"
+								onclick="savePreset()"
+								name="i18n-settings-preset-save_btn"
+							></button>
+			
+							<button
+								class="delete-preset-btn btn btn-secondary btn-sm"
+								onclick="deletePreset()"
+								name="i18n-settings-preset-clear_btn"
+							></button>
+						</div>
 					</div>
 
 					<div class="alert-container mt-3">
 						<div
 							id="alert-preset-save" 
 							class="alert alert-success collapse" role="alert"
-						>
-							<span name="i18n-settings-preset-message_saved"></span>
-						</div>
+							name="i18n-settings-preset-message_saved"
+						></div>
 						<div
 							id="alert-preset-clear"
 							class="alert alert-danger collapse" role="alert"
-						>
-							<span name="i18n-settings-preset-message_cleared"></span>
-						</div>
+							name="i18n-settings-preset-message_cleared"
+						></div>
 					</div>
 
 					<div class="text-center">

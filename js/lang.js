@@ -36,3 +36,13 @@ function getTranslation(properties_array, lang_file) {
 
     return lang_file;
 }
+
+function showContributionInfo() {
+    var alert = $('#alert-contribute-info');
+
+    if (alert[0].style.display == 'block') {
+        alert.hide();
+    } else {
+        alert.show();
+    }
+}
