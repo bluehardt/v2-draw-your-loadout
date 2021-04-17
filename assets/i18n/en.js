@@ -1,9 +1,9 @@
 res_en = {
     main: {
-        characters_label: 'characters',
-        careers_label: 'careers',
-        melee_label: 'melee',
-        ranged_label: 'ranged',
+        characters_label: 'CHARACTERS',
+        careers_label: 'CAREERS',
+        melee_label: 'MELEE',
+        ranged_label: 'RANGED',
         draw_btn: 'Click me!',
         spin_btn: 'Spin!',
         created_by: 'Created by',
@@ -124,6 +124,8 @@ res_en = {
             save_btn: 'Save preset',
             clear_btn: 'Clear preset',
             description: 'You can save currently checked boxes to load them next time you open the page.',
+            message_saved: 'Preset saved - checkboxes state will be remembered (until you clear it one way or another)',
+            message_cleared: 'Preset cleared - all checkoxes will be set by default on the next visit!'
         },
         footer: {
             description: 'changes save automatically',
