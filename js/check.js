@@ -294,9 +294,9 @@ function drawLoadout() {
 	]
 
 	resultsTranslation = [
-		res_cls[rand_cls_name],
-		res_wpnm[rand_wpnm_name],
-		res_wpnr[rand_wpnr_name]
+		res_lang.careers[rand_cls_name],
+		res_lang.weapons_melee[rand_wpnm_name],
+		res_lang.weapons_ranged[rand_wpnr_name]
 	]
 
 	var rouletteEnabled = $('#options-enable-roulette')[0].checked;
