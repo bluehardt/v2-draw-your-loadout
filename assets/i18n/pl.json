@@ -1,0 +1,132 @@
+{
+    "main": {
+        "characters_label": "postaci",
+        "careers_label": "kariery",
+        "melee_label": "broń wręcz",
+        "ranged_label": "broń dystanoswa",
+        "draw_btn": "Losuj!",
+        "spin_btn": "Zakręć!",
+        "created_by": "Stworzone przez"
+    },
+    "characters": {
+        "saltz": "Victor Saltzpyre",
+        "kruber": "Markus Kruber",
+        "bardin": "Bardin Goreksson",
+        "sienna": "Sienna Fuegonasus",
+        "keri":"Kerillian"
+    },
+    "careers": {
+        "saltz-whc-1": "Witch Hunter Captain",
+        "saltz-bh-2": "Łowca Nagród",
+        "saltz-zlt-3": "Zealot",
+        "kruber-mrc-1": "Najemnik",
+        "kruber-hnt-2": "Huntsman",
+        "kruber-fk-3": "Foot Knight",
+        "kruber-gk-4": "Rycerz Graala",
+        "bardin-rv-1": "Ranger Veteran",
+        "bardin-ib-2": "Ironbreaker",
+        "bardin-slr-3": "Slayer",
+        "bardin-oe-4": "Outcast Engineer",
+        "sienna-bw-1": "Battle Wizard",
+        "sienna-pr-2": "Pyromancer",
+        "sienna-unc-3": "Unchained",
+        "keri-ws-1": "Waystalker",
+        "keri-hm-2": "Handmaiden",
+        "keri-shd-3": "Shade"
+    },
+    "weapons_melee": {
+        "saltz-axe-123": "Topór",
+        "saltz-flc-123": "Falchion",
+        "saltz-flail-123": "Flail",
+        "saltz-rpr-123": "Rapier",
+        "saltz-swrd2h-123": "Wielki Miecz",
+        "saltz-axenflc-123": "Axe & Falchion",
+        "saltz-billhk-123": "Bill Hook",
+        "kruber-exec-1234": "Miecz Egzekutora",
+        "kruber-hlb-123": "Halabarda",
+        "kruber-mace1h-1234": "Mace",
+        "kruber-macenshld-123": "Mace & Shield",
+        "kruber-swrd1h-1234": "Miecz",
+        "kruber-swrdnshld-123": "Sword & Shield",
+        "kruber-hmmr2h-1234": "Wielki Młot",
+        "kruber-swrd2h-1234": "Wielki Miecz",
+        "kruber-macenswrd-1234": "Mace & Sword",
+        "kruber-spr-12": "Tuskgor Spear",
+        "kruber-bretswrd-1234": "Bretonnian Longsword",
+        "kruber-bretswrdnshld-4": "Bretonnian Sword & Shield",
+        "bardin-axe1h-1234": "Topór",
+        "bardin-axenshld-124": "Axe & Shield",
+        "bardin-axedual-3": "Dual Axes",
+        "bardin-axe2h-1234": "Great Axe",
+        "bardin-hmmr1h-1234": "Hammer",
+        "bardin-hmmrnshld-124": "Hammer & Shield",
+        "bardin-hmmr2h-1234": "Great Hammer",
+        "bardin-pick-1234": "War Pick",
+        "bardin-hmmrdual-1234": "Dual Hammers",
+        "bardin-coghmmr-1234": "Cog Hammer",
+        "sienna-dag-123": "Dagger",
+        "sienna-swrdfire-123": "Fire Sword",
+        "sienna-mace2h-123": "Mace",
+        "sienna-swrd-123": "Sword",
+        "sienna-crwbill-123": "Crowbill",
+        "sienna-flail-123": "Flaming Flail",
+        "keri-dagdual-123": "Dual Daggers",
+        "keri-swrddual-123": "Dual Swords",
+        "keri-spr-123": "Elven Spear",
+        "keri-glv-123": "Glaive",
+        "keri-swrd-123": "Sword",
+        "keri-swrdndag-123": "Sword & Dagger",
+        "keri-swrd2h-123": "Greatsword",
+        "keri-axe-123": "Elven Axe",
+        "keri-sprnshld-2": "Spear & Shield"
+    },
+    "weapons_ranged": {
+        "saltz-bop-123": "Brace of Pistols",
+        "saltz-xbow-123": "Crossbow",
+        "saltz-rptr-123": "Repeater Pistol",
+        "saltz-vxbow-123": "Volley Crossbow",
+        "kruber-blndr-123": "Blunderbuss",
+        "kruber-hgun-123": "Handgun",
+        "kruber-lbow-2": "Longbow",
+        "kruber-rptr-123": "Repeater Handgun",
+        "bardin-xbow-12": "Crossbow",
+        "bardin-drkpstl-24": "Drakefire Pistols",
+        "bardin-drkgun-24": "Drakegun",
+        "bardin-grudge-124": "Grudge-Raker",
+        "bardin-hgun-124": "Handgun",
+        "bardin-taxes-13": "Throwing Axes",
+        "bardin-mwpstl-124": "Masterwork Pistol",
+        "sienna-beam-123": "Beam Staff",
+        "sienna-bolt-123": "Bolt Staff",
+        "sienna-conf-123": "Conflagration Staff",
+        "sienna-fireball-123": "Fireball Staff",
+        "sienna-flame-123": "Flamestorm Staff",
+        "keri-hag-123": "Hagbane Shortbow",
+        "keri-lbow-123": "Longbow",
+        "keri-sbow-123": "Swift Bow",
+        "keri-vxbow-3": "Volley Crossbow"
+    },
+    "settings": {
+        "header": {
+            "title": "Ustawienia"
+        },
+        "dlc": {
+            "dlc-btu": "Nie uwzględniaj DLC <b>Powrót do Ubersreik</b>",
+            "dlc-wom": "Nie uwzględniaj DLC <b>Wiatry Magii</b>",
+            "dlc-gk": "Nie uwzględniaj DLC <b>Rycerz Graala</b>",
+            "dlc-oe": "Nie uwzględniaj DLC <b>Outcast Engineer</b>"
+        },
+        "roulette": {
+            "enable": "Włącz \"automat\"",
+            "description": "Slot Machine"
+        },
+        "preset": {
+            "save_btn": "Zapisz stan",
+            "clear_btn": "Usuń stan",
+            "description": "Zapisane pola wyboru załadują się przy kolejnej wizycie."
+        },
+        "footer": {
+            "description": "zmiany zapisywane automatycznie"
+        }
+    }
+}
