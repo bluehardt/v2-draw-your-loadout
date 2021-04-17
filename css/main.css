@@ -88,6 +88,13 @@ header {
     opacity: 1 !important;
 }
 
+.notification-container {
+    margin-top: 10px;
+    font-size: .9rem;
+    text-align: center;
+    font-style: italic;
+}
+
 .draw-container {
     position: sticky;
     top: 0;
@@ -97,7 +104,7 @@ header {
 
 .options-preset {
     position: absolute;
-    top: 26px;
+    top: 18px;
     right: 10px;
     z-index: 1;
 }
@@ -141,7 +148,8 @@ header {
 }
 
 @media (max-width: 768px) {
-    .draw-container .draw-description {
+    .draw-container .draw-description,
+    .notification-container {
         font-size: .8rem;
     }
 
