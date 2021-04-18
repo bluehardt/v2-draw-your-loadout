@@ -1,5 +1,3 @@
-function setText() {};
-
 function createCheckbox(type, name, label) {
 	var html = '<div class="form-check group-' + name + '">' +
 			'<input id="' + type + '-' + name + '" type="checkbox" name="' + type + '-' + name + '" class="form-check-input">' +

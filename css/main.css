@@ -130,6 +130,7 @@ header {
 
 .output-placeholder {
     opacity: .5;
+    font-style: italic;
 }
 
 .results-text {
@@ -145,6 +146,39 @@ header {
     text-align: center;
     align-self: center;
     justify-self: center;
+}
+
+.section-name {
+    text-transform: uppercase;
+}
+
+.language-container {
+    display: flex;
+    align-items: center;
+}
+
+.language-info {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.alert {
+    font-size: .9rem;
+}
+
+.contribute-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.donate {
+    cursor: pointer;
+}
+
+#donationModal {
+    text-align: center;
+    font-size: 1rem;
 }
 
 @media (max-width: 768px) {
