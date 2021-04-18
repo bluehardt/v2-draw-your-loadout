@@ -145,9 +145,8 @@ res_en = {
     donation: {
         hey: `
             <p>Hey, thanks for trying out this project of mine, hope you liked it!</p>
-            <p>If you have some Shillings lying around I would be very grateful if you did consider sending some to a greater cause, yes-yes!</p>
-            <p>No pressure though!</p>
+            <p>If you have some Shillings lying around I would be very grateful if you did consider supporting a greater cause, yes-yes... I mean, stopping Chaos Invasion of course!</p>
         `,
-        paypal: 'PayPal'
+        paypal: 'Thank you!'
     }
 }

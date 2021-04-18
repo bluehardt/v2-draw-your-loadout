@@ -145,9 +145,8 @@ res_pl = {
     donation: {
         hey: `
             <p>Cześć, dzięki za odwiedziny!</p>
-            <p>Jeżeli projekt Ci się podoba i masz kilka szylingów pod ręką - byłbym wdzięczny za wsparcie.</p>
-            <p>Niemniej - nic na siłę!</p>
+            <p>Jeżeli projekt Ci się podoba i masz kilka szylingów pod ręką - byłbym wdzięczy za każde wsparcie w walce z Inwazją Chaosu, tak-tak!</p>
         `,
-        paypal: 'PayPal'
+        paypal: 'Dziękuję!'
     }
 }
