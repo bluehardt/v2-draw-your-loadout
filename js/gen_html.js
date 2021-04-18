@@ -16,7 +16,7 @@ function createSection(section_name, section_type, json, resource, css) {
 	var res = Object.values(resource);
 	
 	if(section_type == cat_str.CHARACTERS) {
-		html += createCheckbox('select', 'all', 'ALL')
+		html += createCheckbox('select', 'all', res_lang.main.all.toUpperCase())
 	}
 	
 	for(var i=0; i < arr.length; i++) {
