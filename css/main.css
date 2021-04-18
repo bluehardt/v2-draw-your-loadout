@@ -88,6 +88,13 @@ header {
     opacity: 1 !important;
 }
 
+.notification-container {
+    margin-top: 10px;
+    font-size: .9rem;
+    text-align: center;
+    font-style: italic;
+}
+
 .draw-container {
     position: sticky;
     top: 0;
@@ -97,7 +104,7 @@ header {
 
 .options-preset {
     position: absolute;
-    top: 26px;
+    top: 18px;
     right: 10px;
     z-index: 1;
 }
@@ -123,6 +130,7 @@ header {
 
 .output-placeholder {
     opacity: .5;
+    font-style: italic;
 }
 
 .results-text {
@@ -140,8 +148,42 @@ header {
     justify-self: center;
 }
 
+.section-name {
+    text-transform: uppercase;
+}
+
+.language-container {
+    display: flex;
+    align-items: center;
+}
+
+.language-info {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.alert {
+    font-size: .9rem;
+}
+
+.contribute-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.donate {
+    cursor: pointer;
+}
+
+#donationModal {
+    text-align: center;
+    font-size: 1rem;
+}
+
 @media (max-width: 768px) {
-    .draw-container .draw-description {
+    .draw-container .draw-description,
+    .notification-container {
         font-size: .8rem;
     }
 
