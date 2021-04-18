@@ -141,5 +141,13 @@ res_pl = {
             en: '🇬🇧 Angielski',
             pl: '🇵🇱 Polski'
         }
+    },
+    donation: {
+        hey: `
+            <p>Cześć, dzięki za odwiedziny!</p>
+            <p>Jeżeli projekt Ci się podoba i masz kilka szylingów pod ręką - byłbym wdzięczny za wsparcie.</p>
+            <p>Niemniej - nic na siłę!</p>
+        `,
+        paypal: 'PayPal'
     }
 }

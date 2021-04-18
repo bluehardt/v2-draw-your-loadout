@@ -141,5 +141,13 @@ res_en = {
             en: '🇬🇧 English',
             pl: '🇵🇱 Polish'
         }
+    },
+    donation: {
+        hey: `
+            <p>Hey, thanks for trying out this project of mine, hope you liked it!</p>
+            <p>If you have some Shillings lying around I would be very grateful if you did consider sending some to a greater cause, yes-yes!</p>
+            <p>No pressure though!</p>
+        `,
+        paypal: 'PayPal'
     }
 }

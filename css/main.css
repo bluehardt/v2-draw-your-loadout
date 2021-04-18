@@ -172,6 +172,14 @@ header {
     align-items: center;
 }
 
+.donate {
+    cursor: pointer;
+}
+
+#donationModal {
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     .draw-container .draw-description,
     .notification-container {
