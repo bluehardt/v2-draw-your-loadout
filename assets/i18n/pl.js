@@ -8,7 +8,11 @@ res_pl = {
         spin_btn: 'Losuj!',
         created_by: 'Autor:',
         disclaimer: 'W przypadku niepoprawnego funkcjonowania pól przeładuj stronę!',
-        all: 'wszystkie'
+        all: 'wszystkie',
+        pick_hero: 'Wybierz przynajmniej 1 bohatera!',
+        pick_career: 'Wybierz przynajmniej 1 karierę dla każdej z wybranych postaci!',
+        pick_weapon_melee: 'Wybierz przynajmniej 1 broń wręcz dla każdej z wybranych postaci! (używaną przez karierę)',
+        pick_weapon_ranged: 'Wybierz przynajmniej 1 broń dystansową dla każdej z wybranych postaci! (używaną przez karierę)',
     },
     characters: {
         [ch_str.SALTZ]: 'Victor Saltzpyre',
