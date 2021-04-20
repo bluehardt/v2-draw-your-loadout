@@ -8,7 +8,11 @@ res_en = {
         spin_btn: 'Spin!',
         created_by: 'Created by',
         disclaimer: 'If checkboxes do not behave properly please reload the page!',
-        all: 'all'
+        all: 'all',
+        pick_hero: 'Pick at least 1 hero!',
+        pick_career: 'Pick at least 1 career per chosen hero!',
+        pick_weapon_melee: 'Pick at least 1 melee weapon per chosen hero! (career tied weapon)',
+        pick_weapon_ranged: 'Pick at least 1 ranged weapon per chosen hero! (career tied weapon)',
     },
     characters: {
         [ch_str.SALTZ]: 'Victor Saltzpyre',

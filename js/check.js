@@ -231,7 +231,7 @@ function drawLoadout() {
 	//draw hero
 	rand_ch = chars_arr[rand(chars_arr.length)];
 	
-	if(rand_ch === undefined) return displayResultsText('#output-text', 'Pick at least 1 hero!');
+	if(rand_ch === undefined) return displayResultsText('#output-text', res_lang.main.pick_hero);
 	
 	rand_ch_name = rand_ch.substring(rand_ch.indexOf('-') + 1);
 	
@@ -244,7 +244,7 @@ function drawLoadout() {
 	//draw class
 	rand_cls = cls_arr[rand(cls_arr.length)];
 	
-	if(rand_cls === undefined) return displayResultsText('#output-text', 'Pick at least 1 career per chosen hero!');
+	if(rand_cls === undefined) return displayResultsText('#output-text', res_lang.main.pick_career);
 	
 	rand_cls_name = rand_cls.substring(rand_cls.indexOf('-') + 1);
 	rand_cls_num = rand_cls.substring(rand_cls.lastIndexOf('-') + 1);
@@ -261,14 +261,14 @@ function drawLoadout() {
 	//draw weapon
 	rand_wpnm = wpnm_arr[rand(wpnm_arr.length)];
 	
-	if(rand_wpnm === undefined) return displayResultsText('#output-text', 'Pick at least 1 melee weapon per chosen hero! (or a class tied weapon)');
+	if(rand_wpnm === undefined) return displayResultsText('#output-text', res_lang.main.pick_weapon_melee);
 	
 	rand_wpnm_name = rand_wpnm.substring(rand_wpnm.indexOf('-') + 1);
 	
-	//in case of bardin slayer he can also equip melee weapons in 2nd slot (same goes for resources)
+	//in case of SLAYER and GK they can also equip melee weapons in 2nd slot (same goes for resources)
 	if(rand_cls.includes(cls_str.BARDIN_SLR) || rand_cls.includes(cls_str.KRUBER_GK)) {
 		wpnr_arr = wpnm_arr.concat();
-		res_wpnr = Object.assign({}, res_wpnm, res_wpnr);
+		res_lang.weapons_ranged = Object.assign({}, res_lang.weapons_melee, res_lang.weapons_ranged); // TODO: check and potentially refactor
 	}
 	//get array of checked ranged weapons for randomed class which can be used by it
 	$('input[id*=' + cat_str.WPN_RANGED + '-' + rand_ch_name + ']:checked').each(function() {
@@ -282,7 +282,7 @@ function drawLoadout() {
 	//draw weapon
 	rand_wpnr = wpnr_arr[rand(wpnr_arr.length)];
 	
-	if(rand_wpnr === undefined) return displayResultsText('#output-text', 'Pick at least 1 ranged weapon per chosen hero! (or a class tied weapon)');
+	if(rand_wpnr === undefined) return displayResultsText('#output-text', res_lang.main.pick_weapon_ranged);
 	
 	rand_wpnr_name = rand_wpnr.substring(rand_wpnr.indexOf('-') + 1);
 	
