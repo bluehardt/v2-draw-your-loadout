@@ -268,7 +268,9 @@ function drawLoadout() {
 	//in case of SLAYER and GK they can also equip melee weapons in 2nd slot (same goes for resources)
 	if(rand_cls.includes(cls_str.BARDIN_SLR) || rand_cls.includes(cls_str.KRUBER_GK)) {
 		wpnr_arr = wpnm_arr.concat();
+		console.log('wpnr_arr', wpnr_arr)
 		res_lang.weapons_ranged = Object.assign({}, res_lang.weapons_melee, res_lang.weapons_ranged); // TODO: check and potentially refactor
+		console.log(res_lang.weapons_ranged);
 	}
 	//get array of checked ranged weapons for randomed class which can be used by it
 	$('input[id*=' + cat_str.WPN_RANGED + '-' + rand_ch_name + ']:checked').each(function() {
