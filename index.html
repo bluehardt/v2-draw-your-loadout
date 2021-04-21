@@ -34,14 +34,13 @@ async function ajax() {
 };
 
 function init() {	
-	// ajax();
 	setLanguage(localStorage.getItem('lang'), true);
 
-	document.getElementsByClassName("options-dlc")[0].innerHTML = createSection("", "options", options_str, res_lang.settings.dlc, "options");
-	document.getElementsByClassName("col-chars")[0].innerHTML = createSection(res_lang.main.characters_label, "chars", ch_str, res_lang.characters, "chars");
-	document.getElementsByClassName("col-cls")[0].innerHTML = createSection(res_lang.main.careers_label, "cls", cls_str, res_lang.careers, "classes");
-	document.getElementsByClassName("col-wpnm")[0].innerHTML = createSection(res_lang.main.melee_label, "wpnm", wpnm_str, res_lang.weapons_melee, "melee");
-	document.getElementsByClassName("col-wpnr")[0].innerHTML = createSection(res_lang.main.ranged_label, "wpnr", wpnr_str, res_lang.weapons_ranged, "ranged");
+	document.getElementsByClassName("options-dlc")[0].innerHTML = createSection("", "options", options_str, getTranslation(['settings', 'dlc']), "options");
+	document.getElementsByClassName("col-chars")[0].innerHTML = createSection(getTranslation(['main', 'characters_label']), "chars", ch_str, getTranslation(['characters']), "chars");
+	document.getElementsByClassName("col-cls")[0].innerHTML = createSection(getTranslation(['main', 'careers_label']), "cls", cls_str, getTranslation(['careers']), "classes");
+	document.getElementsByClassName("col-wpnm")[0].innerHTML = createSection(getTranslation(['main', 'melee_label']), "wpnm", wpnm_str, getTranslation(['weapons_melee']), "melee");
+	document.getElementsByClassName("col-wpnr")[0].innerHTML = createSection(getTranslation(['main', 'ranged_label']), "wpnr", wpnr_str, getTranslation(['weapons_ranged']), "ranged");
 
 	// toggle boxes
 	toggleAll();
@@ -58,6 +57,7 @@ function init() {
 	toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
 	toggleDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
 	toggleDLC(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
+	toggleDLC(options_str.DLC_FR, dlc_fr_wpn);
 
 	//load preset if saved, otherwise toggle all
 	loadPreset();
@@ -70,6 +70,7 @@ function init() {
 	loadDLCStore(options_str.DLC_WOM, dlc_wom_wpn);
 	loadDLCStore(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
 	loadDLCStore(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
+	loadDLCStore(options_str.DLC_FR, dlc_fr_wpn);
 }
 </script>
 </head>
@@ -255,7 +256,7 @@ function init() {
 							<div name="i18n-donation-hey"></div>
 							<a href="https://www.paypal.com/paypalme/Bluehardt/5">
 								<button
-									class="btn btn-primary mr-3"
+									class="btn btn-primary"
 									name="i18n-donation-paypal"
 								></button>
 							</a>
