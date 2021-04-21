@@ -19,7 +19,7 @@ function setLanguage(lang, firstTime) {
     // iterating over all elements that include 'i18n' in name and setting related translations
     for(const el of $('[name*=i18n')) {
         var parts = el.attributes.name.value.split('-').splice(1);
-        el.innerHTML = getTranslation(parts, res_lang);
+        el.innerHTML = getTranslation(parts);
     }
 
     // reloading all variables set initially (to avoid recursion)
@@ -30,11 +30,18 @@ function setLanguage(lang, firstTime) {
 
 // iterates over array of properties got from element's name and returns value from trnslation file
 function getTranslation(properties_array, lang_file) {
+    var translation = lang_file ?? res_lang;
+
     for(const el of properties_array) {
-        lang_file = lang_file[el]
+        translation = translation[el];
     }
 
-    return lang_file;
+    // using the english translation by default if one is missing or empty
+    if (!translation) {
+        translation = `@[${getTranslation(properties_array, res_en)}]`;
+    }
+
+    return translation;
 }
 
 function showContributionInfo() {

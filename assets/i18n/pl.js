@@ -8,7 +8,7 @@ res_pl = {
         spin_btn: 'Losuj!',
         created_by: 'Autor:',
         disclaimer: 'W przypadku niepoprawnego funkcjonowania pól przeładuj stronę!',
-        all: 'wszystkie',
+        all: 'wszystko',
         pick_hero: 'Wybierz przynajmniej 1 bohatera!',
         pick_career: 'Wybierz przynajmniej 1 karierę dla każdej z wybranych postaci!',
         pick_weapon_melee: 'Wybierz przynajmniej 1 broń wręcz dla każdej z wybranych postaci! (używaną przez karierę)',
@@ -19,7 +19,7 @@ res_pl = {
         [ch_str.KRUBER]: 'Markus Kruber',
         [ch_str.BARDIN]: 'Bardin Goreksson',
         [ch_str.SIENNA]: 'Sienna Fuegonasus',
-        [ch_str.KERI]:'Kerillian',
+        [ch_str.KERI]: 'Kerillian',
     },
     careers: {
         [cls_str.SALTZ_WHC]: 'Łowca Czarownic Kapitan',
