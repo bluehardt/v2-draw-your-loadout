@@ -34,7 +34,6 @@ async function ajax() {
 };
 
 function init() {	
-	// ajax();
 	setLanguage(localStorage.getItem('lang'), true);
 
 	document.getElementsByClassName("options-dlc")[0].innerHTML = createSection("", "options", options_str, res_lang.settings.dlc, "options");
@@ -58,6 +57,7 @@ function init() {
 	toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
 	toggleDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
 	toggleDLC(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
+	toggleDLC(options_str.DLC_FR, dlc_fr_wpn);
 
 	//load preset if saved, otherwise toggle all
 	loadPreset();
@@ -70,6 +70,7 @@ function init() {
 	loadDLCStore(options_str.DLC_WOM, dlc_wom_wpn);
 	loadDLCStore(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
 	loadDLCStore(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
+	loadDLCStore(options_str.DLC_FR, dlc_fr_wpn);
 }
 </script>
 </head>
