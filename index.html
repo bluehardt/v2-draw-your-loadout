@@ -36,11 +36,11 @@ async function ajax() {
 function init() {	
 	setLanguage(localStorage.getItem('lang'), true);
 
-	document.getElementsByClassName("options-dlc")[0].innerHTML = createSection("", "options", options_str, getTranslation(['settings', 'dlc']), "options");
-	document.getElementsByClassName("col-chars")[0].innerHTML = createSection(getTranslation(['main', 'characters_label']), "chars", ch_str, getTranslation(['characters']), "chars");
-	document.getElementsByClassName("col-cls")[0].innerHTML = createSection(getTranslation(['main', 'careers_label']), "cls", cls_str, getTranslation(['careers']), "classes");
-	document.getElementsByClassName("col-wpnm")[0].innerHTML = createSection(getTranslation(['main', 'melee_label']), "wpnm", wpnm_str, getTranslation(['weapons_melee']), "melee");
-	document.getElementsByClassName("col-wpnr")[0].innerHTML = createSection(getTranslation(['main', 'ranged_label']), "wpnr", wpnr_str, getTranslation(['weapons_ranged']), "ranged");
+	document.getElementsByClassName("options-dlc")[0].innerHTML = createSection("", "options", options_str, "options");
+	document.getElementsByClassName("col-chars")[0].innerHTML = createSection(getTranslation(['main', 'characters_label']), "chars", ch_str, "chars");
+	document.getElementsByClassName("col-cls")[0].innerHTML = createSection(getTranslation(['main', 'careers_label']), "cls", cls_str, "classes");
+	document.getElementsByClassName("col-wpnm")[0].innerHTML = createSection(getTranslation(['main', 'melee_label']), "wpnm", wpnm_str, "melee");
+	document.getElementsByClassName("col-wpnr")[0].innerHTML = createSection(getTranslation(['main', 'ranged_label']), "wpnr", wpnr_str, "ranged");
 
 	// toggle boxes
 	toggleAll();

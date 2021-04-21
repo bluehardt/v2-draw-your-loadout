@@ -31,17 +31,15 @@ function setLanguage(lang, firstTime) {
 // iterates over array of properties got from element's name and returns value from trnslation file
 function getTranslation(properties_array, lang_file) {
     var translation = lang_file ?? res_lang;
-    console.log('optional', translation)
 
     for(const el of properties_array) {
         translation = translation[el];
     }
 
+    // using the english translation by default if one is missing or empty
     if (!translation) {
-        translation = `@${getTranslation(properties_array, res_en)}`;
+        translation = `@[${getTranslation(properties_array, res_en)}]`;
     }
-
-    console.log(properties_array, translation);
 
     return translation;
 }

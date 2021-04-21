@@ -7,20 +7,35 @@ function createCheckbox(type, name, label) {
 	return html;
 }
 
-function createSection(section_name, section_type, json, resource, css) {
+function createSection(section_name, section_type, json, css) {
 	var html = '<div class="' + css + '">';
 
 	html += section_name ?  '<div class="section-name font-weight-bold">' + section_name + '</div>' : '';
 
 	var arr = Object.values(json);
-	var res = Object.values(resource);
 	
 	if(section_type == cat_str.CHARACTERS) {
-		html += createCheckbox('select', 'all', res_lang.main.all.toUpperCase())
+		html += createCheckbox('select', 'all', getTranslation(['main', 'all']).toUpperCase())
 	}
 	
 	for(var i=0; i < arr.length; i++) {
-		html += createCheckbox(section_type, arr[i], res[i]);
+		switch (section_type) {
+			case cat_str.CHARACTERS:
+				html += createCheckbox(section_type, arr[i], getTranslation(['characters', arr[i]]));
+				break;
+			case cat_str.CLASSES:
+				html += createCheckbox(section_type, arr[i], getTranslation(['careers', arr[i]]));
+				break;
+			case cat_str.WPN_MELEE:
+				html += createCheckbox(section_type, arr[i], getTranslation(['weapons_melee', arr[i]]));
+				break;
+			case cat_str.WPN_RANGED:
+				html += createCheckbox(section_type, arr[i], getTranslation(['weapons_ranged', arr[i]]));
+				break;
+			case 'options':
+				html += createCheckbox(section_type, arr[i], getTranslation(['settings', 'dlc', arr[i]]));
+				break;
+		}
 	}
 
 	html += '</div>';

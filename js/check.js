@@ -231,7 +231,7 @@ function drawLoadout() {
 	//draw hero
 	rand_ch = chars_arr[rand(chars_arr.length)];
 	
-	if(rand_ch === undefined) return displayResultsText('#output-text', res_lang.main.pick_hero);
+	if(rand_ch === undefined) return displayResultsText('#output-text', getTranslation(['main', 'pick_hero']));
 	
 	rand_ch_name = rand_ch.substring(rand_ch.indexOf('-') + 1);
 	
@@ -244,7 +244,7 @@ function drawLoadout() {
 	//draw class
 	rand_cls = cls_arr[rand(cls_arr.length)];
 	
-	if(rand_cls === undefined) return displayResultsText('#output-text', res_lang.main.pick_career);
+	if(rand_cls === undefined) return displayResultsText('#output-text', getTranslation(['main', 'pick_career']));
 	
 	rand_cls_name = rand_cls.substring(rand_cls.indexOf('-') + 1);
 	rand_cls_num = rand_cls.substring(rand_cls.lastIndexOf('-') + 1);
@@ -261,7 +261,7 @@ function drawLoadout() {
 	//draw weapon
 	rand_wpnm = wpnm_arr[rand(wpnm_arr.length)];
 	
-	if(rand_wpnm === undefined) return displayResultsText('#output-text', res_lang.main.pick_weapon_melee);
+	if(rand_wpnm === undefined) return displayResultsText('#output-text', getTranslation(['main', 'pick_weapon_melee']));
 	
 	rand_wpnm_name = rand_wpnm.substring(rand_wpnm.indexOf('-') + 1);
 	
@@ -282,7 +282,7 @@ function drawLoadout() {
 	//draw weapon
 	rand_wpnr = wpnr_arr[rand(wpnr_arr.length)];
 	
-	if(rand_wpnr === undefined) return displayResultsText('#output-text', res_lang.main.pick_weapon_ranged);
+	if(rand_wpnr === undefined) return displayResultsText('#output-text', getTranslation(['main', 'pick_weapon_ranged']));
 	
 	rand_wpnr_name = rand_wpnr.substring(rand_wpnr.indexOf('-') + 1);
 	

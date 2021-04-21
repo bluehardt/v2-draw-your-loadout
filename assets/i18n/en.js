@@ -19,7 +19,7 @@ res_en = {
         [ch_str.KRUBER]: 'Markus Kruber',
         [ch_str.BARDIN]: 'Bardin Goreksson',
         [ch_str.SIENNA]: 'Sienna Fuegonasus',
-        [ch_str.KERI]:'Kerillian',
+        [ch_str.KERI]: 'Kerillian',
     },
     careers: {
         [cls_str.SALTZ_WHC]: 'Witch Hunter Captain',
