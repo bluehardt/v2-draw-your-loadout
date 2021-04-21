@@ -294,9 +294,9 @@ function drawLoadout() {
 	]
 
 	resultsTranslation = [
-		res_lang.careers[rand_cls_name],
-		res_lang.weapons_melee[rand_wpnm_name],
-		res_lang.weapons_ranged[rand_wpnr_name]
+		getTranslation(['careers', rand_cls_name]),
+		getTranslation(['weapons_melee', rand_wpnm_name]),
+		getTranslation(['weapons_ranged', rand_wpnr_name]),
 	]
 
 	var rouletteEnabled = $('#options-enable-roulette')[0].checked;
@@ -304,7 +304,7 @@ function drawLoadout() {
 	if (rouletteEnabled) {
 		displayResultsText('#output-text', `
 			<span class="output-placeholder font-weight-normal">
-				<span name=i18n-main-draw_btn>` + res_lang.main.draw_btn + `</span>
+				<span name=i18n-main-draw_btn>` + getTranslation(['main', 'draw_btn']) + `</span>
 			</span>
 		`);
 
