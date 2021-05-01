@@ -142,6 +142,9 @@ res_pl = {
         footer: {
             autosave: 'zmiany zapisywane automatycznie',
         },
+        theme: {
+            dark: 'Ciemny motyw'
+        },
         language: {
             contribute: {
                 info: 'W przypadku chęci dodania lub poprawy tłumaczenia - zostaw komentarz w poradniku lub złap mnie mailowo, dzięki!',

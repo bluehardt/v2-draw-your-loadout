@@ -142,6 +142,9 @@ res_en = {
         footer: {
             autosave: 'changes save automatically',
         },
+        theme: {
+            dark: 'Dark theme'
+        },
         language: {
             contribute: {
                 info: 'If you would like to contribute different language or make some changes - please drop a comment in the guide below or send me an email, thanks!',

@@ -1,0 +1,53 @@
+/*
+    DARK THEME
+*/
+
+/* text-opacity .87, .6, .38 */
+
+.dark-theme,
+.dark-theme .draw-container,
+.dark-theme .fixed-bottom {
+    background-color: #121212;
+    color: rgba(255, 255, 255, .87); 
+}
+
+.dark-theme .output-container {
+    color: rgba(255, 255, 255, .6);
+    background-color: #2a2a2a;
+    border-color: #595959;
+}
+
+.dark-theme .modal-content {
+    background-color: #222222;
+}
+
+.dark-theme #language-change {
+    background-color: #2a2a2a;
+    color: rgba(255, 255, 255, .87); 
+}
+
+.dark-theme .close {
+    color: white;
+}
+
+.dark-theme hr {
+    background-image: -webkit-linear-gradient(left, #8c8b8b, #f0f0f0, #8c8b8b);
+    background-image: -moz-linear-gradient(left, #8c8b8b, #f0f0f0, #8c8b8b);
+    background-image: -ms-linear-gradient(left, #8c8b8b, #f0f0f0, #8c8b8b);
+    background-image: -o-linear-gradient(left, #8c8b8b, #f0f0f0, #8c8b8b); 
+}
+
+/* #007bff */
+.dark-theme a {
+    /* color: rgba(0, 123, 255, 1); */
+    color: #85c1e9 ;
+}
+
+.dark-theme .options-btn,
+.dark-theme .btn.btn-secondary {
+    background-color: #414141;
+}
+
+.dark-theme .github-icon {
+    fill: white;
+}

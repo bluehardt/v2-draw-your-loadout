@@ -9,6 +9,7 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/slotmachine.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/dark-theme.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -25,7 +26,7 @@ crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
-	ajax()
+	ajax();
 });
 
 //TODO: keep and eye on it...
@@ -52,6 +53,7 @@ function init() {
 	toggleHeroRelated(ch_str.KERI);
 	
 	toggleOptions("enable-roulette");
+	toggleOptions("theme-dark");
 
 	toggleDLC(options_str.DLC_BTU, dlc_btu_wpn);
 	toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
@@ -64,6 +66,7 @@ function init() {
 
 	// options
 	loadOptions("enable-roulette");
+	loadOptions("theme-dark");
 
 	//read from local storage
 	loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
@@ -74,7 +77,7 @@ function init() {
 }
 </script>
 </head>
-<body onload="init()" class="pb-5">
+<body onload="init()" class="pb-5 dark-theme">
 	<div class="container">
 		<div class="notification-container">
 			<span name="i18n-main-disclaimer"></span>
@@ -153,6 +156,21 @@ function init() {
 					</div>
 					<hr>
 					<div class="language-container">
+						<div class="form-check">
+							<input 
+								type="checkbox"
+								id="options-theme-dark"
+								name="options-theme-dark"
+								class="form-check-input"
+							>
+							<label 
+								id="label-theme-dark"
+								for="options-theme-dark"
+								class="form-check-label"
+							>
+								<span name="i18n-settings-theme-dark"></span>
+							</label>
+						</div>
 						<select id="language-change" class="custom-select" onchange="setLanguage(this.value)">
 							<option name="i18n-settings-language-en" value="en"></option>
 							<option name="i18n-settings-language-pl" value="pl"></option>
