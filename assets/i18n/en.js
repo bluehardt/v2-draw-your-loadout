@@ -161,5 +161,9 @@ res_en = {
             <p>If you have some Shillings lying around I would be very grateful if you did consider supporting a greater cause, yes-yes... I mean, stopping Chaos Invasion of course!</p>
         `,
         paypal: 'Thank you!'
+    },
+    change_log: {
+        title: 'Extras',
+        commits: 'Commits'
     }
 }

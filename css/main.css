@@ -56,18 +56,22 @@ header {
 	height: 25px;
 }
 
+.change-log-new {
+    color: red;
+}
+
 /* tooltip */
 .tip {
     text-decoration: none
 }
 .tip:hover {
-    cursor: help;
+    cursor: pointer;
     position: relative
 }
-.tip span {
+.tip .tip-message {
     display: none
 }
-.tip:hover span {
+.tip:hover .tip-message {
     white-space: nowrap;
     padding: 5px;
     display: block;
@@ -160,6 +164,15 @@ header {
 .language-info {
     margin-left: 10px;
     cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #17a2b8;
+    color: white;
+    font-size: .95rem;
+    line-height: 24px;
+    flex: 0 0 auto;
 }
 
 .alert {
@@ -179,6 +192,89 @@ header {
 #donationModal {
     text-align: center;
     font-size: 1rem;
+}
+
+/* modal */
+.modal-content .modal-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+}
+
+.commits-content {
+    height: 50vh;
+    overflow: auto;
+}
+
+/* checkbox */
+/* Customize the label (the container) */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 24px;
+    margin: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 4px;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+} 
+
+.checkbox-container.disabled {
+    opacity: .5;
+    cursor: not-allowed;
 }
 
 @media (max-width: 768px) {

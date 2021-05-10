@@ -161,5 +161,9 @@ res_pl = {
             <p>Jeżeli projekt Ci się podoba i masz kilka szylingów pod ręką - byłbym wdzięczy za każde wsparcie w walce z Inwazją Chaosu, tak-tak!</p>
         `,
         paypal: 'Dziękuję!'
+    },
+    change_log: {
+        title: 'Dodatkowe',
+        commits: 'Zmiany'
     }
 }

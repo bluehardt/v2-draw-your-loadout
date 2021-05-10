@@ -1,16 +1,19 @@
 function createCheckbox(type, name, label) {
-	var html = '<div class="form-check group-' + name + '">' +
-			'<input id="' + type + '-' + name + '" type="checkbox" name="' + type + '-' + name + '" class="form-check-input">' +
-			'<label id="label-' + name + '" for="' + type + '-' + name + '" class="form-check-label">' + label + '</label>' +
-			'</div>';
+	var html = `
+		<label class="checkbox-container group-${name}">
+			${label}
+			<input id="${type}-${name}" type="checkbox" name="${type}-${name}">
+			<span id="label-${name}" for="${type}-${name}" class="checkmark"></span>
+		</label>
+	`;
 	
 	return html;
 }
 
 function createSection(section_name, section_type, json, css) {
-	var html = '<div class="' + css + '">';
+	var html = `<div class="${css}">`;
 
-	html += section_name ?  '<div class="section-name font-weight-bold">' + section_name + '</div>' : '';
+	html += section_name ?  `<div class="section-name font-weight-bold">${section_name}</div>` : '';
 
 	var arr = Object.values(json);
 	
@@ -44,5 +47,5 @@ function createSection(section_name, section_type, json, css) {
 }
 
 function createListImageElement(item) {
-	return '<li id="' + item + '"><img src=\"assets/roulette/' + item + '.png"/></li>';
+	return `<li id="${item}"><img src="assets/roulette/${item}.png"/></li>`;
 }
