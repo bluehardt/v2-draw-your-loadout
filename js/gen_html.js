@@ -1,7 +1,7 @@
 function createCheckbox(type, name, label) {
 	var html = `
 		<label class="checkbox-container group-${name}">
-			${label}
+			<span class="checkbox-text">${label}</span>
 			<input id="${type}-${name}" type="checkbox" name="${type}-${name}">
 			<span id="label-${name}" for="${type}-${name}" class="checkmark"></span>
 		</label>

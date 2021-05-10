@@ -214,11 +214,16 @@ header {
     position: relative;
     padding-left: 24px;
     margin: 0;
+    margin-bottom: .25em;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.checkbox-container .checkbox-text {
+    line-height: 1.4rem;
 }
 
 /* Hide the browser's default checkbox */
