@@ -1,19 +1,66 @@
 //get last update date from github
 //TODO: make cleaner?
 async function getLastUpdateDate() {
-	var url = 'https://api.github.com/repos/bluehardt/v2-draw-your-loadout/branches/master';
+	var url_branch_master = 'https://api.github.com/repos/bluehardt/v2-draw-your-loadout/branches/master';
+	var url_commits = 'https://api.github.com/repos/bluehardt/v2-draw-your-loadout/commits';
 	
-	const resp = await $.get(url);
+	const resp_branch_master = await $.get(url_branch_master);
+	const resp_commits = await $.get(url_commits);
 	
-	var last_update = new Date(resp.commit.commit.author.date);
-	last_update = last_update.toLocaleString('en-GB');
+	var last_update = new Date(resp_branch_master.commit.commit.author.date);
+	last_update = last_update.toLocaleDateString('en-GB');
+
+	// TODO: setup for update notifications
+	if (!localStorage.getItem('last-changes')) {
+		localStorage.setItem('last-changes', resp_commits.length - 1);
+	}
+	localStorage.setItem('new-changes', resp_commits.length);
+
+	var last_changes = Number(localStorage.getItem('last-changes'));
+	var new_changes = Number(localStorage.getItem('new-changes'));
+
+	$('#changeLogModal .panel-body .commits-content')[0].innerHTML = loadCommits(new_changes - last_changes, resp_commits);
+
+	var repo_url = resp_branch_master._links.html;
 	
-	var repo_url = resp._links.html;
+	var git_img = `
+		<svg class="github-icon mb-1" height="17" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
+			<path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+		</svg>
+	`;
+
+	var badge = new_changes > last_changes ? `
+		<span class="changes-badge badge badge-pill badge-danger">${new_changes - last_changes}</span>
+	`: '';
 	
-	var git_img = '<svg class="mb-1" height="17" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>';
-	
-	return '<span class="tip"><a href="' + repo_url + '">' + git_img + '</a>' + last_update + '<span>' + resp.commit.commit.message + '</span></span>';
+	return `
+		<span class="tip">
+			<a href="${repo_url}">${git_img}</a>
+			<span class="clickable" data-toggle="modal" data-target="#changeLogModal" onclick="clearBadge()">
+				${last_update}
+				${badge}
+			</span>
+		</span>
+	`;
 };
+
+function loadCommits(diff, commits) {
+	let html = '<ul>';
+
+	for(let [i, item] of commits.entries()) {
+		html += `<small><li class="${i < diff ? 'text-danger' : ''}">${item.commit.message}</li></small>` //.commit.message
+	}
+
+	html += '</ul>';
+
+	return html;
+}
+
+// TMP
+function clearBadge() {
+	localStorage.setItem('last-changes', localStorage.getItem('new-changes'));
+	$('.changes-badge').toggleClass('d-none', true);
+}
 
 //random integer (0 - max-1)
 function rand(max) {
@@ -25,15 +72,23 @@ function loadDLCStore(name, weapons, career) {
 	var arr = Object.values(weapons);
 	var opt = $('#options-' + name)[0];
 	opt.checked = JSON.parse(localStorage.getItem('toggle-' + name));
-	
+
 	if (opt.checked) {
 		for(var j=0; j < arr.length; j++) {
+			// label disable effect
+			var group = $(`.group-${arr[j]}`);
+			group.toggleClass('disabled', opt.checked);
+
 			var input = $('[id*=' + arr[j] + ']');
 			input.prop('disabled', opt.checked);
 			input.prop('checked', false);
 		}
 
 		if (career) {
+			// label disable effect
+			var group = $(`.group-${career}`);
+			group.toggleClass('disabled', opt.checked);
+
 			var input = $('[id*=' + career + ']');
 			input.prop('disabled', opt.checked);
 			input.prop('checked', false);
@@ -106,12 +161,20 @@ function toggleHeroRelated(name) {
 function toggleDLC(name, weapons, career) {
 	$('#options-' + name).click(function(event) {
 		for(var i=0; i < weapons.length; i++) {
+			// label disable effect
+			var group = $(`.group-${weapons[i]}`);
+			group.toggleClass('disabled', $(this).is(':checked'));
+
 			var input = $('[id*=' + weapons[i] + ']');
 			input.prop('disabled', $(this).is(':checked'));
 			input.prop('checked', !$(this).is(':checked'));
 		}
 
 		if (career) {
+			// label disable effect
+			var group = $(`.group-${career}`);
+			group.toggleClass('disabled', $(this).is(':checked'));
+
 			var input = $('[id*=' + career + ']');
 			input.prop('disabled', $(this).is(':checked'));
 			input.prop('checked', !$(this).is(':checked'));
@@ -124,13 +187,25 @@ function toggleDLC(name, weapons, career) {
 function toggleOptions(name) {
 	$('#options-' + name).click(function(event) {
 		localStorage.setItem('toggle-' + name, $(this).is(':checked'));
+
+		if (name === 'theme-dark') {
+			toggleTheme($(this).is(':checked'));
+		}
 	});
 };
 
 function loadOptions(name) {
 	var opt = $('#options-' + name)[0];
 	opt.checked = localStorage.getItem('toggle-' + name) === null ? true : JSON.parse(localStorage.getItem('toggle-' + name));
+
+	if (name === 'theme-dark') {
+		toggleTheme(opt.checked);
+	}
 };
+
+function toggleTheme(state) {
+	$('body').toggleClass('dark-theme', state);
+}
 
 /*
 	Save picked checkboxes into local storage
@@ -340,6 +415,8 @@ function displayResultsText(target, message) {
 	
 	$(target)[0].innerHTML = displayResults;
 }
+
+
 
 
 /*

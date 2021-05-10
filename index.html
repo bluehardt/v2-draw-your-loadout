@@ -9,6 +9,7 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/slotmachine.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/dark-theme.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -25,7 +26,8 @@ crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
-	ajax()
+	init();
+	ajax();
 });
 
 //TODO: keep and eye on it...
@@ -34,6 +36,8 @@ async function ajax() {
 };
 
 function init() {	
+	loadOptions("theme-dark");
+
 	setLanguage(localStorage.getItem('lang'), true);
 
 	document.getElementsByClassName("options-dlc")[0].innerHTML = createSection("", "options", options_str, "options");
@@ -52,6 +56,7 @@ function init() {
 	toggleHeroRelated(ch_str.KERI);
 	
 	toggleOptions("enable-roulette");
+	toggleOptions("theme-dark");
 
 	toggleDLC(options_str.DLC_BTU, dlc_btu_wpn);
 	toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
@@ -64,6 +69,7 @@ function init() {
 
 	// options
 	loadOptions("enable-roulette");
+	loadOptions("theme-dark");
 
 	//read from local storage
 	loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
@@ -74,7 +80,10 @@ function init() {
 }
 </script>
 </head>
-<body onload="init()" class="pb-5">
+<script>
+	toggleTheme(localStorage.getItem('toggle-theme-dark'));
+</script>
+<body class="pb-5">
 	<div class="container">
 		<div class="notification-container">
 			<span name="i18n-main-disclaimer"></span>
@@ -131,33 +140,28 @@ function init() {
 					<div class="options-dlc"></div>
 					<hr>
 					<div class="options-roulette">
-						<div class="form-check">
-							<input 
-								type="checkbox"
-								id="options-enable-roulette"
-								name="options-enable-roulette"
-								class="form-check-input"
-							>
-							<label 
-								id="label-enable-roulette"
-								for="options-enable-roulette"
-								class="form-check-label"
-							>
-								<span name="i18n-settings-roulette-enable"></span>
-							</label>
-						</div>
+						<label class="checkbox-container group-enable-roulette">
+							<span name="i18n-settings-roulette-enable"></span>
+							<input id="options-enable-roulette" type="checkbox" name="options-enable-roulette">
+							<span id="label-enable-roulette" for="options-enable-roulette" class="checkmark"></span>
+						</label>
 						<small>
 							<span name="i18n-settings-roulette-description"></span>
 							<a href="https://github.com/momokang/slotmachine">momokang/slotmachine</a>
 						</small>
 					</div>
 					<hr>
+					<label class="checkbox-container group-theme-dark mb-2">
+						<span name="i18n-settings-theme-dark"></span>
+						<input id="options-theme-dark" type="checkbox" name="options-theme-dark">
+						<span id="label-theme-dark" for="options-theme-dark" class="checkmark"></span>
+					</label>
 					<div class="language-container">
 						<select id="language-change" class="custom-select" onchange="setLanguage(this.value)">
 							<option name="i18n-settings-language-en" value="en"></option>
 							<option name="i18n-settings-language-pl" value="pl"></option>
 						</select>
-						<div class="language-info" onclick="showContributionInfo()">ℹ️</div>
+						<div class="language-info" onclick="showContributionInfo()">i</div>
 					</div>
 					<div
 						id="alert-contribute-info" 
@@ -254,12 +258,37 @@ function init() {
 					<div class="panel panel-primary">
 						<div class="panel-body">
 							<div name="i18n-donation-hey"></div>
-							<a href="https://www.paypal.com/paypalme/Bluehardt/5">
+							<a href="https://www.paypal.com/paypalme/Bluehardt/1usd">
 								<button
 									class="btn btn-primary"
 									name="i18n-donation-paypal"
 								></button>
 							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="changeLogModal" tabindex="-1" role="dialog" aria-labelledby="changeLogModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  	<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">
+						<span name="i18n-change_log-title"></span>
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<div class="commits-container">
+								<div name="i18n-change_log-commits"></div>
+								<div class="commits-content"></div>
+							</div>
 						</div>
 					</div>
 				</div>

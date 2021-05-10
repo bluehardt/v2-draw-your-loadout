@@ -142,6 +142,9 @@ res_en = {
         footer: {
             autosave: 'changes save automatically',
         },
+        theme: {
+            dark: 'Dark theme'
+        },
         language: {
             contribute: {
                 info: 'If you would like to contribute different language or make some changes - please drop a comment in the guide below or send me an email, thanks!',
@@ -158,5 +161,9 @@ res_en = {
             <p>If you have some Shillings lying around I would be very grateful if you did consider supporting a greater cause, yes-yes... I mean, stopping Chaos Invasion of course!</p>
         `,
         paypal: 'Thank you!'
+    },
+    change_log: {
+        title: 'Extras',
+        commits: 'Commits'
     }
 }

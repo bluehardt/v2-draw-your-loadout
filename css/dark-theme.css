@@ -1,0 +1,140 @@
+/*
+    DARK THEME
+*/
+
+/* text-opacity .87, .6, .38 */
+/* colors: 
+    #222
+    #313131
+    #414141
+    #525252
+*/
+
+/* main */
+.dark-theme,
+.dark-theme .draw-container {
+    background-color: #222;
+    color: rgba(255, 255, 255, .6); 
+}
+
+/* modal */
+.dark-theme .modal-content {
+    background-color: #222;
+}
+
+.dark-theme .modal-content .modal-header {
+    background-color: #222;
+    border-bottom: 1px solid #414141;
+}
+
+.dark-theme .close {
+    color: white;
+}
+
+/* alerts */
+.dark-theme .alert.alert-info,
+.dark-theme .alert.alert-success,
+.dark-theme .alert.alert-danger
+{
+    background-color: #313131;
+    border-color: #313131;
+    color: rgba(255, 255, 255, .6);
+}
+
+/* links */
+.dark-theme a {
+    /* color: rgba(0, 123, 255, 1); */
+    color: #85c1e9 ;
+}
+
+/* buttons */
+
+.dark-theme .btn.btn-secondary,
+.dark-theme .btn.btn-info,
+.dark-theme .language-info,
+.dark-theme .options-btn,
+.dark-theme .btn.btn-primary,
+.dark-theme .btn.btn-info:active:focus,
+.dark-theme .btn.btn-primary:active:focus
+{
+    color: rgba(255, 255, 255, .6);
+    background-color: #414141;
+    border-color: #414141;
+}
+
+.dark-theme .btn.btn-secondary:hover,
+.dark-theme .btn.btn-info:hover,
+.dark-theme .language-info:hover,
+.dark-theme .options-btn:hover,
+.dark-theme .btn.btn-primary:hover {
+    color: rgba(255, 255, 255, .87);
+    background-color: #525252;
+    border-color: #525252;
+}
+
+.dark-theme .btn.btn-secondary:focus,
+.dark-theme .btn.btn-info:focus,
+.dark-theme .language-info:focus,
+.dark-theme .options-btn:focus,
+.dark-theme .btn.btn-primary:focus,
+.dark-theme .btn.btn-secondary:active:focus,
+.dark-theme .btn.btn-info:active:focus,
+.dark-theme .language-info:active:focus,
+.dark-theme .options-btn:active:focus,
+.dark-theme .btn.btn-primary:active:focus
+{
+    box-shadow: none;
+}
+
+/* tooltip */
+.dark-theme .tip:hover .tip-message {
+    background-color: #222;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.5);
+    box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.5);
+}
+
+/* other */
+.dark-theme .github-icon {
+    fill: white;
+}
+
+.dark-theme hr {
+    background-image: -webkit-linear-gradient(left, #222222, #414141, #222222);
+    background-image: -moz-linear-gradient(left, #222222, #414141, #222222);
+    background-image: -ms-linear-gradient(left, #222222, #414141, #222222);
+    background-image: -o-linear-gradient(left, #222222, #414141, #222222); 
+}
+
+.dark-theme .output-container,
+.dark-theme .fixed-bottom {
+    color: rgba(255, 255, 255, .6);
+    background-color: #222;
+    border-color: #595959;
+}
+
+.dark-theme #language-change {
+    background-color: #222;
+    color: rgba(255, 255, 255, .6);
+    border-color: #414141;
+}
+
+/* checkbox */
+.dark-theme .checkmark {
+    border: 1px solid #222;
+    background-color: #414141;
+}
+
+.dark-theme .checkbox-container input:checked ~ .checkmark {
+    background-color: #414141;
+}
+
+.dark-theme .checkbox-container .checkmark:after {
+    border: solid rgba(255, 255, 255, .87);
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+} 
+
+
