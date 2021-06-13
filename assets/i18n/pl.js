@@ -39,6 +39,7 @@ res_pl = {
         [cls_str.KERI_WS]: 'Przepatrywacz',
         [cls_str.KERI_HM]: 'Służka',
         [cls_str.KERI_SHD]: 'Cień',
+        [cls_str.KERI_ST]: 'Siostra Cierni',
     },
     weapons_melee: {
         [wpnm_str.SALTZ_AXE]: 'Topór',
@@ -116,6 +117,8 @@ res_pl = {
         [wpnr_str.KERI_SBOW]: 'Żwawy łuk',
         [wpnr_str.KERI_VXBOW]: 'Szybkostrzelna kusza',
         [wpnr_str.KERI_MFIRE]: 'Łuk Księżycowego Ognia',
+        [wpnr_str.KERI_BRJV]: 'Cierniowy oszczep',
+        [wpnr_str.KERI_DPWD]: 'Kostur z Głębokiej Kniei',
     },
     settings: {
         header: {
@@ -127,6 +130,7 @@ res_pl = {
             [options_str.DLC_GK]: 'Deaktywuj <b>Rycerz Graala</b>',
             [options_str.DLC_OE]: 'Deaktywuj <b>Inżynier Wygnaniec</b>',
             [options_str.DLC_FR]: 'Deaktywuj <b>Zapomniane Relikty</b>',
+            [options_str.DLC_ST]: 'Deaktywuj <b>Siostra Cierni</b>',
         },
         roulette: {
             enable: 'Wizualizacja losowania',
