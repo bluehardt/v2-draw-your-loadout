@@ -6,6 +6,8 @@ async function getLastUpdateDate() {
 	
 	const resp_branch_master = await $.get(url_branch_master);
 	const resp_commits = await $.get(url_commits);
+
+	console.log(resp_commits.length)
 	
 	var last_update = new Date(resp_branch_master.commit.commit.author.date);
 	last_update = last_update.toLocaleDateString('en-GB');

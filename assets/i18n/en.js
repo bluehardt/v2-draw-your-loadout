@@ -39,6 +39,7 @@ res_en = {
         [cls_str.KERI_WS]: 'Waystalker',
         [cls_str.KERI_HM]: 'Handmaiden',
         [cls_str.KERI_SHD]: 'Shade',
+        [cls_str.KERI_ST]: 'Sister of the Thorn',
     },
     weapons_melee: {
         [wpnm_str.SALTZ_AXE]: 'Axe',
@@ -116,6 +117,8 @@ res_en = {
         [wpnr_str.KERI_SBOW]: 'Swift Bow',
         [wpnr_str.KERI_VXBOW]: 'Volley Crossbow',
         [wpnr_str.KERI_MFIRE]: 'Moonfire Bow',
+        [wpnr_str.KERI_BRJV]: 'Briar Javelin',
+        [wpnr_str.KERI_DPWD]: 'Deepwood Staff',
     },
     settings: {
         header: {
@@ -127,6 +130,7 @@ res_en = {
             [options_str.DLC_GK]: 'Disable <b>Grail Knight</b> DLC',
             [options_str.DLC_OE]: 'Disable <b>Outcast Engineer</b> DLC',
             [options_str.DLC_FR]: 'Disable <b>Forgotten Relics</b> DLC',
+            [options_str.DLC_ST]: 'Disable <b>Sister of the Thorn</b> DLC',
         },
         roulette: {
             enable: 'Enable roulette',

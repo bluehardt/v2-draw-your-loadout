@@ -31,6 +31,7 @@ const cls_str = {
 	KERI_WS: 'keri-ws-1',
 	KERI_HM: 'keri-hm-2',
 	KERI_SHD: 'keri-shd-3',
+	KERI_ST: 'keri-st-4',
 };
 
 const wpnm_str = {
@@ -70,14 +71,14 @@ const wpnm_str = {
 	SIENNA_SWRD: 'sienna-swrd-123',
 	SIENNA_CRWBILL: 'sienna-crwbill-123',
 	SIENNA_FLAIL: 'sienna-flail-123',
-	KERI_DAGDUAL: 'keri-dagdual-123',
-	KERI_SWRDDUAL: 'keri-swrddual-123',
-	KERI_SPR: 'keri-spr-123',
-	KERI_GLV: 'keri-glv-123',
-	KERI_SWRD: 'keri-swrd-123',
-	KERI_SWRDNDAG: 'keri-swrdndag-123',
-	KERI_SWRD2H: 'keri-swrd2h-123',
-	KERI_AXE: 'keri-axe-123',
+	KERI_DAGDUAL: 'keri-dagdual-1234',
+	KERI_SWRDDUAL: 'keri-swrddual-1234',
+	KERI_SPR: 'keri-spr-1234',
+	KERI_GLV: 'keri-glv-1234',
+	KERI_SWRD: 'keri-swrd-1234',
+	KERI_SWRDNDAG: 'keri-swrdndag-1234',
+	KERI_SWRD2H: 'keri-swrd2h-1234',
+	KERI_AXE: 'keri-axe-1234',
 	KERI_SPRNSHLD: 'keri-sprnshld-2',
 };
 
@@ -105,11 +106,13 @@ const wpnr_str = {
 	SIENNA_FIREBALL: 'sienna-fireball-123',
 	SIENNA_FLAME: 'sienna-flame-123',
 	SIENNA_CRSC: 'sienna-crsc-123',
-	KERI_HAG: 'keri-hag-123',
-	KERI_LBOW: 'keri-lbow-123',
-	KERI_SBOW: 'keri-sbow-123',
+	KERI_HAG: 'keri-hag-1234',
+	KERI_LBOW: 'keri-lbow-1234',
+	KERI_SBOW: 'keri-sbow-1234',
 	KERI_VXBOW: 'keri-vxbow-3',
-	KERI_MFIRE: 'keri-mfire-123',
+	KERI_MFIRE: 'keri-mfire-1234',
+	KERI_BRJV: 'keri-brjv-1234',
+	KERI_DPWD: 'keri-dpwd-4',
 };
 
 const options_str = {
@@ -118,6 +121,7 @@ const options_str = {
 	DLC_GK: 'dlc-gk',
 	DLC_OE: 'dlc-oe',
 	DLC_FR: 'dlc-fr',
+	DLC_ST: 'dlc-st',
 };
 
 const dlc_btu_wpn = [
@@ -152,7 +156,13 @@ const dlc_fr_wpn = [
 	wpnr_str.BARDIN_TRLHMMR,
 	wpnr_str.SIENNA_CRSC,
 	wpnr_str.KERI_MFIRE,
-]
+];
+
+const dlc_st_wpn = [
+	wpnr_str.KERI_BRJV,
+	wpnr_str.KERI_DPWD,
+];
 
 const dlc_gk_cls = cls_str.KRUBER_GK;
 const dlc_oe_cls = cls_str.BARDIN_OE;
+const dlc_st_cls = cls_str.KERI_ST;
