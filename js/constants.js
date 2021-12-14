@@ -17,6 +17,7 @@ const cls_str = {
 	SALTZ_WHC: 'saltz-whc-1',
 	SALTZ_BH: 'saltz-bh-2',
 	SALTZ_ZLT: 'saltz-zlt-3',
+	SALTZ_WP: 'saltz-wp-4',
 	KRUBER_MRC: 'kruber-mrc-1',
 	KRUBER_HNT: 'kruber-hnt-2',
 	KRUBER_FK: 'kruber-fk-3',
@@ -42,6 +43,12 @@ const wpnm_str = {
 	SALTZ_SWRD2H: 'saltz-swrd2h-123',
 	SALTZ_AXENFLC: 'saltz-axenflc-123',
 	SALTZ_BILLHK: 'saltz-billhk-123',
+	SALTZ_HMMR2H: 'saltz-hmmr2h-34',
+	SALTZ_HMMR1H: 'saltz-hmmr1h-34',
+	SALTZ_HMMRDUAL: 'saltz-hmmrdual-34',
+	SALTZ_HMMRNSHLD: 'saltz-hmmrnshld-4',
+	SALTZ_HMMRNTOME: 'saltz-hmmrntome-4',
+	SALTZ_FLAILNSHLD: 'saltz-flailnshld-4',
 	KRUBER_EXEC: 'kruber-exec-1234',
 	KRUBER_HLB: 'kruber-hlb-123',
 	KRUBER_MACE1H: 'kruber-mace1h-1234',
@@ -122,6 +129,7 @@ const options_str = {
 	DLC_OE: 'dlc-oe',
 	DLC_FR: 'dlc-fr',
 	DLC_ST: 'dlc-st',
+	DLC_WP: 'dlc-wp',
 };
 
 const dlc_btu_wpn = [
@@ -163,6 +171,16 @@ const dlc_st_wpn = [
 	wpnr_str.KERI_DPWD,
 ];
 
+const dlc_wp_wpn = [
+	wpnm_str.SALTZ_HMMR1H,
+	wpnm_str.SALTZ_HMMR2H,
+	wpnm_str.SALTZ_HMMRDUAL,
+	wpnm_str.SALTZ_HMMRNSHLD,
+	wpnm_str.SALTZ_HMMRNTOME,
+	wpnm_str.SALTZ_FLAILNSHLD,
+]
+
 const dlc_gk_cls = cls_str.KRUBER_GK;
 const dlc_oe_cls = cls_str.BARDIN_OE;
 const dlc_st_cls = cls_str.KERI_ST;
+const dlc_wp_cls = cls_str.SALTZ_WP;

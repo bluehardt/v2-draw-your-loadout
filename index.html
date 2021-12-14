@@ -64,6 +64,7 @@ function init() {
 	toggleDLC(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
 	toggleDLC(options_str.DLC_FR, dlc_fr_wpn);
 	toggleDLC(options_str.DLC_ST, dlc_st_wpn, dlc_st_cls);
+	toggleDLC(options_str.DLC_WP, dlc_wp_wpn, dlc_wp_cls);
 
 	//load preset if saved, otherwise toggle all
 	loadPreset();
@@ -79,6 +80,7 @@ function init() {
 	loadDLCStore(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
 	loadDLCStore(options_str.DLC_FR, dlc_fr_wpn);
 	loadDLCStore(options_str.DLC_ST, dlc_st_wpn, dlc_st_cls);
+	loadDLCStore(options_str.DLC_WP, dlc_wp_wpn, dlc_wp_cls);
 }
 </script>
 </head>
@@ -245,6 +247,9 @@ function init() {
 								<button type="button" class="btn btn-danger btn-lg" id="btn-example8">
 									<span name="i18n-main-spin_btn"></span>
 								</button>
+							</div>
+							<div class="mt-3 text-center" style="font-size: .8rem">
+								<span name="i18n-main-credits_v2fandom"></span>
 							</div>
 						</div>
 					</div>

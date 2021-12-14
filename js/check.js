@@ -342,8 +342,8 @@ function drawLoadout() {
 	
 	rand_wpnm_name = rand_wpnm.substring(rand_wpnm.indexOf('-') + 1);
 	
-	//in case of SLAYER and GK they can also equip melee weapons in 2nd slot (same goes for resources)
-	if(rand_cls.includes(cls_str.BARDIN_SLR) || rand_cls.includes(cls_str.KRUBER_GK)) {
+	//in case of SLAYER, GK and WP they can also equip melee weapons in 2nd slot (same goes for resources)
+	if(rand_cls.includes(cls_str.BARDIN_SLR) || rand_cls.includes(cls_str.KRUBER_GK) || rand_cls.includes(cls_str.SALTZ_WP)) {
 		wpnr_arr = wpnm_arr.concat();
 		res_lang.weapons_ranged = Object.assign({}, res_lang.weapons_melee, res_lang.weapons_ranged); // TODO: check and potentially refactor
 	}
@@ -446,7 +446,7 @@ function drawRoulette() {
 	});
 
 	// marging melee and ranged weapons in case it's melee-only class
-	if(slots_careers.includes(cls_str.BARDIN_SLR) || slots_careers.includes(cls_str.KRUBER_GK)) {
+	if(slots_careers.includes(cls_str.BARDIN_SLR) || slots_careers.includes(cls_str.KRUBER_GK) || slots_careers.includes(cls_str.SALTZ_WP)) {
 		slots_ranged = slots_ranged.concat(slots_melee);
 	}
 
