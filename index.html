@@ -1,332 +1,461 @@
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/slotmachine.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="stylesheet" type="text/css" href="css/dark-theme.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/constants.js"></script>
-<script type="text/javascript" src="js/gen_html.js"></script>
-<script type="text/javascript" src="js/check.js"></script>
-<script type="text/javascript" src="assets/i18n/en.js"></script>
-<script type="text/javascript" src="assets/i18n/pl.js"></script>
-<script type="text/javascript" src="js/lang.js"></script>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="css/slotmachine.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/dark-theme.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/gen_html.js"></script>
+    <script type="text/javascript" src="js/check.js"></script>
+    <script type="text/javascript" src="assets/i18n/en.js"></script>
+    <script type="text/javascript" src="assets/i18n/pl.js"></script>
+    <script type="text/javascript" src="js/lang.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-<script src="js/slotmachine/slotmachine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="js/slotmachine/slotmachine.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function() {
-	init();
-	ajax();
-});
+    <script type="text/javascript">
+      $(document).ready(function () {
+        init();
+        ajax();
+      });
 
-//TODO: keep and eye on it...
-async function ajax() {
-	$("#lastUpdate")[0].innerHTML = await getLastUpdateDate();
-};
+      //TODO: keep and eye on it...
+      async function ajax() {
+        $("#lastUpdate")[0].innerHTML = await getLastUpdateDate();
+      }
 
-function init() {	
-	loadOptions("theme-dark");
+      function init() {
+        loadOptions("theme-dark");
 
-	setLanguage(localStorage.getItem('lang'), true);
+        setLanguage(localStorage.getItem("lang"), true);
 
-	document.getElementsByClassName("options-dlc")[0].innerHTML = createSection("", "options", options_str, "options");
-	document.getElementsByClassName("col-chars")[0].innerHTML = createSection(getTranslation(['main', 'characters_label']), "chars", ch_str, "chars");
-	document.getElementsByClassName("col-cls")[0].innerHTML = createSection(getTranslation(['main', 'careers_label']), "cls", cls_str, "classes");
-	document.getElementsByClassName("col-wpnm")[0].innerHTML = createSection(getTranslation(['main', 'melee_label']), "wpnm", wpnm_str, "melee");
-	document.getElementsByClassName("col-wpnr")[0].innerHTML = createSection(getTranslation(['main', 'ranged_label']), "wpnr", wpnr_str, "ranged");
+        document.getElementsByClassName("options-dlc")[0].innerHTML =
+          createSection("", "options", options_str, "options");
+        document.getElementsByClassName("col-chars")[0].innerHTML =
+          createSection(
+            getTranslation(["main", "characters_label"]),
+            "chars",
+            ch_str,
+            "chars"
+          );
+        document.getElementsByClassName("col-cls")[0].innerHTML = createSection(
+          getTranslation(["main", "careers_label"]),
+          "cls",
+          cls_str,
+          "classes"
+        );
+        document.getElementsByClassName("col-wpnm")[0].innerHTML =
+          createSection(
+            getTranslation(["main", "melee_label"]),
+            "wpnm",
+            wpnm_str,
+            "melee"
+          );
+        document.getElementsByClassName("col-wpnr")[0].innerHTML =
+          createSection(
+            getTranslation(["main", "ranged_label"]),
+            "wpnr",
+            wpnr_str,
+            "ranged"
+          );
 
-	// toggle boxes
-	toggleAll();
-	
-	toggleHeroRelated(ch_str.SALTZ);
-	toggleHeroRelated(ch_str.KRUBER);
-	toggleHeroRelated(ch_str.BARDIN);
-	toggleHeroRelated(ch_str.SIENNA);
-	toggleHeroRelated(ch_str.KERI);
-	
-	toggleOptions("enable-roulette");
-	toggleOptions("theme-dark");
+        // toggle boxes
+        toggleAll();
 
-	toggleDLC(options_str.DLC_BTU, dlc_btu_wpn);
-	toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
-	toggleDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
-	toggleDLC(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
-	toggleDLC(options_str.DLC_FR, dlc_fr_wpn);
-	toggleDLC(options_str.DLC_ST, dlc_st_wpn, dlc_st_cls);
-	toggleDLC(options_str.DLC_WP, dlc_wp_wpn, dlc_wp_cls);
+        toggleHeroRelated(ch_str.SALTZ);
+        toggleHeroRelated(ch_str.KRUBER);
+        toggleHeroRelated(ch_str.BARDIN);
+        toggleHeroRelated(ch_str.SIENNA);
+        toggleHeroRelated(ch_str.KERI);
 
-	//load preset if saved, otherwise toggle all
-	loadPreset();
+        toggleOptions("enable-roulette");
+        toggleOptions("theme-dark");
 
-	// options
-	loadOptions("enable-roulette");
-	loadOptions("theme-dark");
+        toggleDLC(options_str.DLC_BTU, dlc_btu_wpn);
+        toggleDLC(options_str.DLC_WOM, dlc_wom_wpn);
+        toggleDLC(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
+        toggleDLC(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
+        toggleDLC(options_str.DLC_FR, dlc_fr_wpn);
+        toggleDLC(options_str.DLC_ST, dlc_st_wpn, dlc_st_cls);
+        toggleDLC(options_str.DLC_WP, dlc_wp_wpn, dlc_wp_cls);
+        toggleDLC(options_str.DLC_NCR, dlc_ncr_wpn, dlc_ncr_cls);
 
-	//read from local storage
-	loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
-	loadDLCStore(options_str.DLC_WOM, dlc_wom_wpn);
-	loadDLCStore(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
-	loadDLCStore(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
-	loadDLCStore(options_str.DLC_FR, dlc_fr_wpn);
-	loadDLCStore(options_str.DLC_ST, dlc_st_wpn, dlc_st_cls);
-	loadDLCStore(options_str.DLC_WP, dlc_wp_wpn, dlc_wp_cls);
-}
-</script>
-</head>
-<script>
-	toggleTheme(localStorage.getItem('toggle-theme-dark'));
-</script>
-<body class="pb-5">
-	<div class="container">
-		<div class="notification-container">
-			<span name="i18n-main-disclaimer"></span>
-		</div>
-		<div class="draw-container pt-2 mb-2 mb-sm-2">
-			<div class="options-preset">
-				<button type="button" class="options-btn btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter"></button>
-			</div>
-			<div id="drawBtn" class="output-container p-2 text-center" onclick="drawLoadout()">
-				<div id="output-text" class="d-inline text-center font-weight-bold">
-					<span class="output-placeholder font-weight-normal">
-						<span name="i18n-main-draw_btn"></span>
-					</span>
-				</div>
-			</div>
-			<hr>
-		</div>
+        //load preset if saved, otherwise toggle all
+        loadPreset();
 
-		<div class="row">
-			<div class="col-chars col-sm-6 col-md-3"></div>
-			<div class="col-cls col-sm-6 col-md-3"></div>
-			<div class="col-wpnm col-sm-6 col-md-3"></div>
-			<div class="col-wpnr col-sm-6 col-md-3"></div>
-		</div>
-	</div>
+        // options
+        loadOptions("enable-roulette");
+        loadOptions("theme-dark");
 
-	<footer class="fixed-bottom">
-		<div class="container">
-			<div class="row p-1 small">
-				<div class="col-12">
-					<span id="lastUpdate"></span>
-					<span class="float-right">
-						<span name="i18n-main-created_by"></span>
-						<a href="https://steamcommunity.com/id/bluehardt">Blue</a>
-						<span class="donate" data-toggle="modal" data-target="#donationModal">💰</span>
-					</span>
-				</div>
-			</div>
-		</div>
-	</footer>
+        //read from local storage
+        loadDLCStore(options_str.DLC_BTU, dlc_btu_wpn);
+        loadDLCStore(options_str.DLC_WOM, dlc_wom_wpn);
+        loadDLCStore(options_str.DLC_GK, dlc_gk_wpn, dlc_gk_cls);
+        loadDLCStore(options_str.DLC_OE, dlc_oe_wpn, dlc_oe_cls);
+        loadDLCStore(options_str.DLC_FR, dlc_fr_wpn);
+        loadDLCStore(options_str.DLC_ST, dlc_st_wpn, dlc_st_cls);
+        loadDLCStore(options_str.DLC_WP, dlc_wp_wpn, dlc_wp_cls);
+        loadDLCStore(options_str.DLC_NCR, dlc_ncr_wpn, dlc_ncr_cls);
+      }
+    </script>
+  </head>
+  <script>
+    toggleTheme(localStorage.getItem("toggle-theme-dark"));
+  </script>
+  <body class="pb-5">
+    <div class="container">
+      <div class="notification-container">
+        <span name="i18n-main-disclaimer"></span>
+      </div>
+      <div class="draw-container pt-2 mb-2 mb-sm-2">
+        <div class="options-preset">
+          <button
+            type="button"
+            class="options-btn btn btn-secondary"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
+          ></button>
+        </div>
+        <div
+          id="drawBtn"
+          class="output-container p-2 text-center"
+          onclick="drawLoadout()"
+        >
+          <div id="output-text" class="d-inline text-center font-weight-bold">
+            <span class="output-placeholder font-weight-normal">
+              <span name="i18n-main-draw_btn"></span>
+            </span>
+          </div>
+        </div>
+        <hr />
+      </div>
 
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		  	<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalCenterTitle">
-						<span name="i18n-settings-header-title"></span>
-					</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="options-dlc"></div>
-					<hr>
-					<div class="options-roulette">
-						<label class="checkbox-container group-enable-roulette">
-							<span name="i18n-settings-roulette-enable"></span>
-							<input id="options-enable-roulette" type="checkbox" name="options-enable-roulette">
-							<span id="label-enable-roulette" for="options-enable-roulette" class="checkmark"></span>
-						</label>
-						<small>
-							<span name="i18n-settings-roulette-description"></span>
-							<a href="https://github.com/momokang/slotmachine">momokang/slotmachine</a>
-						</small>
-					</div>
-					<hr>
-					<label class="checkbox-container group-theme-dark mb-2">
-						<span name="i18n-settings-theme-dark"></span>
-						<input id="options-theme-dark" type="checkbox" name="options-theme-dark">
-						<span id="label-theme-dark" for="options-theme-dark" class="checkmark"></span>
-					</label>
-					<div class="language-container">
-						<select id="language-change" class="custom-select" onchange="setLanguage(this.value)">
-							<option name="i18n-settings-language-en" value="en"></option>
-							<option name="i18n-settings-language-pl" value="pl"></option>
-						</select>
-						<div class="language-info" onclick="showContributionInfo()">i</div>
-					</div>
-					<div
-						id="alert-contribute-info" 
-						class="alert alert-info collapse mt-3"
-						role="alert"
-					>
-						<div name="i18n-settings-language-contribute-info"></div>
-						<div class="contribute-buttons mt-2">
-							<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1876718413">
-								<button
-									class="btn btn-info btn-sm"
-									name="i18n-settings-language-contribute-guide"
-								></button>
-							</a>
-							<a href="mailto:bluehardt.contact@gmail.com?subject=%5BV2-DYL%5D%20Contribution" >
-								<button
-									class="btn btn-info btn-sm mr-3"
-									name="i18n-settings-language-contribute-email"
-								></button>
-							</a>
-						</div>
-					</div>
-					<hr>
-					<div class="modal-options-preset mt-3">
-						<div>
-							<small>
-								<span name="i18n-settings-preset-description"></span>
-							</small>
-						</div>
-						<div class="preset-buttons mt-2">
-							<button
-								class="save-preset-btn btn btn-secondary btn-sm mr-3"
-								onclick="savePreset()"
-								name="i18n-settings-preset-save_btn"
-							></button>
-			
-							<button
-								class="delete-preset-btn btn btn-secondary btn-sm"
-								onclick="deletePreset()"
-								name="i18n-settings-preset-clear_btn"
-							></button>
-						</div>
-					</div>
+      <div class="row">
+        <div class="col-chars col-sm-6 col-md-3"></div>
+        <div class="col-cls col-sm-6 col-md-3"></div>
+        <div class="col-wpnm col-sm-6 col-md-3"></div>
+        <div class="col-wpnr col-sm-6 col-md-3"></div>
+      </div>
+    </div>
 
-					<div class="alert-container mt-3">
-						<div
-							id="alert-preset-save" 
-							class="alert alert-success collapse" role="alert"
-							name="i18n-settings-preset-message_saved"
-						></div>
-						<div
-							id="alert-preset-clear"
-							class="alert alert-danger collapse" role="alert"
-							name="i18n-settings-preset-message_cleared"
-						></div>
-					</div>
+    <footer class="fixed-bottom">
+      <div class="container">
+        <div class="row p-1 small">
+          <div class="col-12">
+            <span id="lastUpdate"></span>
+            <span class="float-right">
+              <span name="i18n-main-created_by"></span>
+              <a href="https://steamcommunity.com/id/bluehardt">Blue</a>
+              <span
+                class="donate"
+                data-toggle="modal"
+                data-target="#donationModal"
+                >💰</span
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-					<div class="text-center">
-						<small><em><span name="i18n-settings-footer-autosave"></span></em></small>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+              <span name="i18n-settings-header-title"></span>
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="options-dlc"></div>
+            <hr />
+            <div class="options-roulette">
+              <label class="checkbox-container group-enable-roulette">
+                <span name="i18n-settings-roulette-enable"></span>
+                <input
+                  id="options-enable-roulette"
+                  type="checkbox"
+                  name="options-enable-roulette"
+                />
+                <span
+                  id="label-enable-roulette"
+                  for="options-enable-roulette"
+                  class="checkmark"
+                ></span>
+              </label>
+              <small>
+                <span name="i18n-settings-roulette-description"></span>
+                <a href="https://github.com/momokang/slotmachine"
+                  >momokang/slotmachine</a
+                >
+              </small>
+            </div>
+            <hr />
+            <label class="checkbox-container group-theme-dark mb-2">
+              <span name="i18n-settings-theme-dark"></span>
+              <input
+                id="options-theme-dark"
+                type="checkbox"
+                name="options-theme-dark"
+              />
+              <span
+                id="label-theme-dark"
+                for="options-theme-dark"
+                class="checkmark"
+              ></span>
+            </label>
+            <div class="language-container">
+              <select
+                id="language-change"
+                class="custom-select"
+                onchange="setLanguage(this.value)"
+              >
+                <option name="i18n-settings-language-en" value="en"></option>
+                <option name="i18n-settings-language-pl" value="pl"></option>
+              </select>
+              <div class="language-info" onclick="showContributionInfo()">
+                i
+              </div>
+            </div>
+            <div
+              id="alert-contribute-info"
+              class="alert alert-info collapse mt-3"
+              role="alert"
+            >
+              <div name="i18n-settings-language-contribute-info"></div>
+              <div class="contribute-buttons mt-2">
+                <a
+                  href="https://steamcommunity.com/sharedfiles/filedetails/?id=1876718413"
+                >
+                  <button
+                    class="btn btn-info btn-sm"
+                    name="i18n-settings-language-contribute-guide"
+                  ></button>
+                </a>
+                <a
+                  href="mailto:bluehardt.contact@gmail.com?subject=%5BV2-DYL%5D%20Contribution"
+                >
+                  <button
+                    class="btn btn-info btn-sm mr-3"
+                    name="i18n-settings-language-contribute-email"
+                  ></button>
+                </a>
+              </div>
+            </div>
+            <hr />
+            <div class="modal-options-preset mt-3">
+              <div>
+                <small>
+                  <span name="i18n-settings-preset-description"></span>
+                </small>
+              </div>
+              <div class="preset-buttons mt-2">
+                <button
+                  class="save-preset-btn btn btn-secondary btn-sm mr-3"
+                  onclick="savePreset()"
+                  name="i18n-settings-preset-save_btn"
+                ></button>
 
-	<div class="modal fade" id="rouletteModal" tabindex="-1" role="dialog" aria-labelledby="rouletteModalTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		  	<div class="modal-content">
-				<div class="modal-body">
-					<div class="panel panel-primary">
-						<div class="panel-body">
-							<div class="slotwrapper" id="example8">
-								<ul class="slots-col-1"></ul>
-								<ul class="slots-col-2"></ul>
-								<ul class="slots-col-3"></ul>
-							</div>
-							<div class="results-text"></div>
-							<div class="mt-3 text-center">
-								<button type="button" class="btn btn-danger btn-lg" id="btn-example8">
-									<span name="i18n-main-spin_btn"></span>
-								</button>
-							</div>
-							<div class="mt-3 text-center" style="font-size: .8rem">
-								<span name="i18n-main-credits_v2fandom"></span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                <button
+                  class="delete-preset-btn btn btn-secondary btn-sm"
+                  onclick="deletePreset()"
+                  name="i18n-settings-preset-clear_btn"
+                ></button>
+              </div>
+            </div>
 
-	<div class="modal fade" id="donationModal" tabindex="-1" role="dialog" aria-labelledby="donationModalTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		  	<div class="modal-content">
-				<div class="modal-body">
-					<div class="panel panel-primary">
-						<div class="panel-body">
-							<div name="i18n-donation-hey"></div>
-							<a href="https://www.paypal.com/paypalme/Bluehardt/1usd">
-								<button
-									class="btn btn-primary"
-									name="i18n-donation-paypal"
-								></button>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="alert-container mt-3">
+              <div
+                id="alert-preset-save"
+                class="alert alert-success collapse"
+                role="alert"
+                name="i18n-settings-preset-message_saved"
+              ></div>
+              <div
+                id="alert-preset-clear"
+                class="alert alert-danger collapse"
+                role="alert"
+                name="i18n-settings-preset-message_cleared"
+              ></div>
+            </div>
 
-	<div class="modal fade" id="changeLogModal" tabindex="-1" role="dialog" aria-labelledby="changeLogModalTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		  	<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalCenterTitle">
-						<span name="i18n-change_log-title"></span>
-					</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="panel panel-primary">
-						<div class="panel-body">
-							<div class="commits-container">
-								<div name="i18n-change_log-commits"></div>
-								<div class="commits-content"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="text-center">
+              <small
+                ><em><span name="i18n-settings-footer-autosave"></span></em
+              ></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-	<script type="text/javascript">
-		$("#btn-example8").click(function() {
-			drawLoadout();
-			
-			var spinBtnRef = $(this)[0];
-			spinBtnRef.disabled = true;
+    <div
+      class="modal fade"
+      id="rouletteModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="rouletteModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <div class="slotwrapper" id="example8">
+                  <ul class="slots-col-1"></ul>
+                  <ul class="slots-col-2"></ul>
+                  <ul class="slots-col-3"></ul>
+                </div>
+                <div class="results-text"></div>
+                <div class="mt-3 text-center">
+                  <button
+                    type="button"
+                    class="btn btn-danger btn-lg"
+                    id="btn-example8"
+                  >
+                    <span name="i18n-main-spin_btn"></span>
+                  </button>
+                </div>
+                <div class="mt-3 text-center" style="font-size: 0.8rem">
+                  <span name="i18n-main-credits_v2fandom"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-			$("#example8 ul").playSpin({
-				time: 1000,
-				loops: 4,
-				endNum: [
-					getResultIndex(".slots-col-1", results[0]),
-					getResultIndex(".slots-col-2", results[1]),
-					getResultIndex(".slots-col-3", results[2])
-				],
-				onEnd: function() {
-				},
-				onFinish: function() {
-					spinBtnRef.disabled = false;
-					displayResultsText(".results-text");
-					$(".results-text").addClass("opacity-1");
-				}
-			});
-		});
-	</script>
-</body>
+    <div
+      class="modal fade"
+      id="donationModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="donationModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <div name="i18n-donation-hey"></div>
+                <a href="https://www.paypal.com/paypalme/Bluehardt/1usd">
+                  <button
+                    class="btn btn-primary"
+                    name="i18n-donation-paypal"
+                  ></button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="changeLogModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="changeLogModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+              <span name="i18n-change_log-title"></span>
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <div class="commits-container">
+                  <div name="i18n-change_log-commits"></div>
+                  <div class="commits-content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $("#btn-example8").click(function () {
+        drawLoadout();
+
+        var spinBtnRef = $(this)[0];
+        spinBtnRef.disabled = true;
+
+        $("#example8 ul").playSpin({
+          time: 1000,
+          loops: 4,
+          endNum: [
+            getResultIndex(".slots-col-1", results[0]),
+            getResultIndex(".slots-col-2", results[1]),
+            getResultIndex(".slots-col-3", results[2]),
+          ],
+          onEnd: function () {},
+          onFinish: function () {
+            spinBtnRef.disabled = false;
+            displayResultsText(".results-text");
+            $(".results-text").addClass("opacity-1");
+          },
+        });
+      });
+    </script>
+  </body>
 </html>
